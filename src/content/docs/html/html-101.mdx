@@ -1,0 +1,64 @@
+---
+title: HTML - HyperText Markup Language
+---
+
+import { FileTree } from "@astrojs/starlight/components";
+
+## HyperText
+
+When you think of a website, imagine a collection of pages interconnected via links. **Hypertext** refers to text that links to other texts or resources. Unlike regular text, hypertext contains clickable links (called **hyperlinks**) that take you to other pages, sections, or external resources when clicked.
+
+**Example:**  
+[Clicking this link will take you to Google](https://www.google.com)
+
+This link is an example of hypertext.
+
+## Markup
+
+**Markup** refers to special tags used to structure, format, and display content on a webpage. These tags don't directly appear on the final webpage, but instead, they tell the browser how to arrange and display the content. In HTML, we use tags like `<h1>`, `<p>`, and `<img>` to define headings, paragraphs, and images.
+
+## Language
+
+A **language** is a tool for communication. In this case, we use **HTML** to describe and display the content of a webpage using various markup tags.
+
+**NOTE:** HTML is **NOT** a programming language..
+
+---
+
+## Starting a New Project
+
+:::note[live server]
+Ensure you have installed the Live Server extension before proceeding. You should see the `Go Live` text at the bottom panel if it was successfully installed.
+:::
+
+To ensure consistency, follow these steps to set up a central folder for all your projects in this bootcamp:
+
+1. Create a new folder in the `Documents` directory. Name it something like `projects` or `bootcamp`.
+
+   :::info
+   If your project name contains spaces (e.g., `my project`), use underscores instead: `my_project`.
+   :::
+
+2. Inside the newly created folder, create a subfolder called `html_basics`.
+
+<FileTree>
+- Documents 
+  - bootcamp 
+    - **html_basics.html**
+</FileTree>
+
+3. Open **VS Code**.
+4. Open the `html_basics` folder in VS Code and create a new HTML file named `index.html`.
+5. Type `!` and press **Tab** (this is an **Emmet** shortcut, a built-in VS Code tool for fast code generation). This generates the basic HTML structure for you.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+```
