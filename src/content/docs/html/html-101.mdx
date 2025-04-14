@@ -2,7 +2,7 @@
 title: HTML - HyperText Markup Language
 ---
 
-import { FileTree } from "@astrojs/starlight/components";
+import { FileTree, Code } from "@astrojs/starlight/components";
 
 ## HyperText
 
@@ -27,7 +27,7 @@ A **language** is a tool for communication. In this case, we use **HTML** to des
 
 ## Starting a New Project
 
-:::note[live server]
+:::note[Live Server]
 Ensure you have installed the Live Server extension before proceeding. You should see the `Go Live` text at the bottom panel if it was successfully installed.
 :::
 
@@ -40,18 +40,18 @@ To ensure consistency, follow these steps to set up a central folder for all you
    :::
 
 2. Inside the newly created folder, create a subfolder called `html_basics`.
-
+3. Open **VS Code**.
+4. Open the `html_basics` folder in VS Code and create a new HTML file named `index.html`.
 <FileTree>
 - Documents 
   - bootcamp 
-    - **html_basics.html**
+    - html_basics
+      - **index.html**
+  - ...
 </FileTree>
-
-3. Open **VS Code**.
-4. Open the `html_basics` folder in VS Code and create a new HTML file named `index.html`.
 5. Type `!` and press **Tab** (this is an **Emmet** shortcut, a built-in VS Code tool for fast code generation). This generates the basic HTML structure for you.
 
-```html
+```diff title="index.html" lang="html"
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -1,0 +1,466 @@
+---
+title: HTML Forms
+---
+
+import HtmlOutput from "../../../components/HtmlOutput";
+
+## Form and Input Tags
+
+We all have had to fill forms at one point, either physically or online. Forms are used to gather information such as academic bio-data, user registration or login etc.
+
+There are dedication tags in HTML for collecting form data:
+
+- `<form>`: Used to create a form that collects user input and submits it to a server for processing. It typically includes input fields and a submit button.
+- `<input>`: Used to create various input fields within a form, such as text boxes, radio buttons, checkboxes, etc. The `type` attribute defines the kind of input (e.g., text, email, password, checkbox, etc.).
+
+Create a new HTML file named `survey.html` in the `html_basics` folder. The folder structure should look like this:
+
+import {FileTree} from "@astrojs/starlight/components";
+
+<FileTree>
+- html_basics
+  - img
+    - ...
+  - chapter.html
+  - **survey.html**
+  - index.html
+</FileTree>
+
+Here, we create a new form for collecting survey data about our bootcamp.
+
+Create the standard HTML boiler code by using emmet shortcut `!` and set title to `Survey Form`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+  </head>
+  <body></body>
+</html>
+```
+
+### Form element
+
+The `form` element is the appropriate container for all form inputs.
+
+```html
+<body>
+  <h1 id="title">CareerConnects Survey Form</h1>
+  <p id="description">
+    Thank you for taking the time to help us improve the platform
+  </p>
+
+  <form id="survey-form"></form>
+</body>
+```
+
+### Form inputs
+
+Form inputs are used to specify the type of data to be collected ranging from text, email, password, colour, checkbox etc.
+
+```html ins={3-9, 14, 23,26-27}
+<form id="survey-form">
+  <!-- Name Input -->
+  <label for="name">Name</label>
+  <input
+    type="text"
+    id="name"
+    placeholder="Enter your name"
+    required
+  />
+
+  <!-- Email Input -->
+  <label for="email">E-mail</label>
+  <input
+    type="email"
+    id="email"
+    placeholder="Enter your email"
+    required
+  />
+
+  <!-- Age Input -->
+  <label for="age">Age</label>
+  <input
+    type="number"
+    id="age"
+    placeholder="Input your age"
+    min="18"
+    max="75"
+    required
+  />
+</form>
+```
+
+**Breakdown:**
+
+1. `<label for="name">` is used to provide a relationship between a text and an input. The `name` attribute links to the `id` of the input
+2. `<input type="text" />` - The text input is used for gathering plain text data.
+3. `<input type="email" />` - The email input is used for gathering email addresses. It has built-in validation to ensure the entered text is in a valid email format.
+4. `<input type="number" />` - The number input is used for gathering numeric data. It has built-in validation to ensure the entered text is in a valid number format.
+
+- `id="name"` - Unique identifier for the input which allows the label to know which element to focus on when clicked
+- `min` and `max` - These attributes are used to set the minimum and maximum values for the input. In this case, the user must be between 18 and 75 years old to fill the form
+- `placeholder="Enter your name"` - The placeholder is a text shown in the input which is cleared immediatelly the use enters data into it
+- `required` - This tells the browser that the input field field is important and must be filled before submission
+
+### Dropdown
+
+```html
+<p>Which option best describes your current role?</p>
+<select name="dropdown" id="dropdown" required>
+  <option value="" disabled selected>Select your role</option>
+  <option value="student">Student</option>
+  <option value="full-time">Full-time</option>
+  <option value="part-time">Part-time</option>
+  <option value="others">Others</option>
+</select>
+```
+**Breakdown:**
+
+The dropdown menu is special because it uses a unique tag `select` and `option`
+
+- `<select>` is the container of the dropdown options. 
+- The `name` attribute is used when sending the form data to the server to identify the input and its value
+- `<option>` tags are used to list the values within the dropdown
+- `value` attribute is the value sent to the server along with the name of the input
+- `disabled` attribute makes it so that the option cannot be selected by the user
+- `selected` is used to control the default value selected within the dropdown, the user can change this
+
+### Radio buttons
+
+```html
+<p>Would you recommend CareerConnects to a friend?</p>
+<input type="radio" name="option" value="definitely" id="definitely" />
+<label for="definitely">Definitely</label>
+<br />
+<input type="radio" name="option" value="maybe" id="maybe" />
+<label for="maybe">Maybe</label>
+<br />
+<input type="radio" name="option" value="nah" id="nah" />
+<label for="nah">Nah</label>
+```
+**Breakdown:**
+
+1. `<input type="radio" />` - Used to provided limited number of options from which the user can pick only one.
+2. Requires a `name` attribute to link related buttons
+3. `<br />` to split buttons into new lines
+
+### Dropdown 2
+
+```html
+<p>What is your favourite feature of CareerConnects?</p>
+<select name="dropdown2" id="dropdown2" required>
+  <option value="" disabled selected>Pick one</option>
+  <option value="challenges">Challenges</option>
+  <option value="projects">Projects</option>
+  <option value="community">Community</option>
+  <option value="open-source">Open Source</option>
+</select>
+```
+
+### Checkbox
+
+Checkboxes are used to provide limited values to the user, from which they can select one or multiple.
+
+```html
+<p>What would you like to see improved? (Check all that apply)</p>
+
+<label for="front">
+  <input type="checkbox" id="front" name="front" value="front" />
+  Front-end Projects
+</label>
+
+<label for="back">
+  <input type="checkbox" id="back" name="back" value="back" />
+  Back-end Projects
+</label>
+
+<label for="data_visualization">
+  <input
+    type="checkbox"
+    id="data_visualization"
+    name="data_visualization"
+    value="data_visualization"
+  />
+  Data Visualization
+</label>
+
+<label for="challenges">
+  <input type="checkbox" id="challenges" name="challenges" value="challenges" />
+  Challenges
+</label>
+
+<label for="open">
+  <input type="checkbox" id="open" name="open" value="open" />
+  Open Source Communities
+</label>
+```
+**Breakdown:**
+
+1. `<input type="checkbox" />` for declaring checkbox input
+2. `name` and `value` attributes are sent to the server for every option the user selects
+
+### Textarea
+
+Alows you to accept long form of plain text input from the user. It is a flexible input type because it allows the user to manually resize the input box
+
+```html
+<textarea
+  name="text"
+  id="textarea"
+  cols="30"
+  rows="6"
+  placeholder="Enter your comments here"
+></textarea>
+```
+**Breakdown:**
+
+1. `<textarea>` - The text area input uses a dedicated tag.
+2. `cols` attribute specifies the initial width of the element
+3. `rows` attribute specifies the initial height of the element
+
+### Submit & Reset
+
+`<submit>` is used to send all inputs collated in the form to the server or perform an operation
+
+`<reset>` is used to reset all the input data within the form
+
+```html
+<input type="submit" value="Submit" />
+<input type="reset" value="Reset" />
+```
+
+## Full Project So Far
+
+```html
+  <body>
+    <h1 id="title">CareerConnects Survey Form</h1>
+    <p id="description">
+      Thank you for taking the time to help us improve the platform
+    </p>
+
+    <form id="survey-form">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        required
+      />
+      <br />
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      />
+      <br />
+
+      <label for="age">Age</label>
+      <input
+        type="number"
+        id="age"
+        placeholder="Input your age"
+        min="18"
+        max="75"
+        required
+      />
+
+      <p>Which option best describes your current role?</p>
+      <select name="dropdown" id="dropdown" required>
+        <option value="" disabled selected>Select your role</option>
+        <option value="student">Student</option>
+        <option value="full-time">Full-time</option>
+        <option value="part-time">Part-time</option>
+        <option value="others">Others</option>
+      </select>
+
+      <p>Would you recommend CareerConnects to a friend?</p>
+      <input type="radio" name="option" value="definitely" id="definitely" />
+      <label for="definitely">Definitely</label>
+      <br />
+      <input type="radio" name="option" value="maybe" id="maybe" />
+      <label for="maybe">Maybe</label>
+      <br />
+      <input type="radio" name="option" value="nah" id="nah" />
+      <label for="nah">Nah</label>
+
+      <p>What is your favourite feature of CareerConnects?</p>
+      <select name="dropdown2" id="dropdown2" required>
+        <option value="" disabled selected>Pick one</option>
+        <option value="challenges">Challenges</option>
+        <option value="projects">Projects</option>
+        <option value="community">Community</option>
+        <option value="open-source">Open Source</option>
+      </select>
+
+      <p>What would you like to see improved? (Check all that apply)</p>
+      <label for="front">
+        <input type="checkbox" id="front" name="front" value="front" />
+        Front-end Projects
+      </label>
+      <label for="back">
+        <input type="checkbox" id="back" name="back" value="back" />
+        Back-end Projects
+      </label>
+      <label for="data_visualization">
+        <input
+          type="checkbox"
+          id="data_visualization"
+          name="data_visualization"
+          value="data_visualization"
+        />
+        Data Visualization
+      </label>
+      <label for="challenges">
+        <input
+          type="checkbox"
+          id="challenges"
+          name="challenges"
+          value="challenges"
+        />
+        Challenges
+      </label>
+      <label for="open">
+        <input type="checkbox" id="open" name="open" value="open" />
+        Open Source Communities
+      </label>
+
+      <textarea
+        name="text"
+        id="textarea"
+        cols="30"
+        rows="6"
+        placeholder="Enter your comments here"
+      ></textarea>
+
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+  ```
+
+  ## Output
+
+  <details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+          <body>
+    <h1 id="title">CareerConnects Survey Form</h1>
+    <p id="description">
+      Thank you for taking the time to help us improve the platform
+    </p>
+
+    <form id="survey-form">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        required
+      />
+
+      <br />
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+      />
+      <br />
+
+      <label for="age">Age</label>
+      <input
+        type="number"
+        id="age"
+        placeholder="Input your age"
+        min="18"
+        max="75"
+        required
+      />
+
+      <p>Which option best describes your current role?</p>
+      <select name="dropdown" id="dropdown" required>
+        <option value="" disabled selected>Select your role</option>
+        <option value="student">Student</option>
+        <option value="full-time">Full-time</option>
+        <option value="part-time">Part-time</option>
+        <option value="others">Others</option>
+      </select>
+
+      <p>Would you recommend CareerConnects to a friend?</p>
+      <input type="radio" name="option" value="definitely" id="definitely" />
+      <label for="definitely">Definitely</label>
+      <br />
+      <input type="radio" name="option" value="maybe" id="maybe" />
+      <label for="maybe">Maybe</label>
+      <br />
+      <input type="radio" name="option" value="nah" id="nah" />
+      <label for="nah">Nah</label>
+
+      <p>What is your favourite feature of CareerConnects?</p>
+      <select name="dropdown2" id="dropdown2" required>
+        <option value="" disabled selected>Pick one</option>
+        <option value="challenges">Challenges</option>
+        <option value="projects">Projects</option>
+        <option value="community">Community</option>
+        <option value="open-source">Open Source</option>
+      </select>
+
+      <p>What would you like to see improved? (Check all that apply)</p>
+      <label for="front">
+        <input type="checkbox" id="front" name="front" value="front" />
+        Front-end Projects
+      </label>
+      <label for="back">
+        <input type="checkbox" id="back" name="back" value="back" />
+        Back-end Projects
+      </label>
+      <label for="data_visualization">
+        <input
+          type="checkbox"
+          id="data_visualization"
+          name="data_visualization"
+          value="data_visualization"
+        />
+        Data Visualization
+      </label>
+      <label for="challenges">
+        <input
+          type="checkbox"
+          id="challenges"
+          name="challenges"
+          value="challenges"
+        />
+        Challenges
+      </label>
+      <label for="open">
+        <input type="checkbox" id="open" name="open" value="open" />
+        Open Source Communities
+      </label>
+
+      <br />
+
+      <textarea
+        name="text"
+        id="textarea"
+        cols="30"
+        rows="6"
+        placeholder="Enter your comments here"
+      ></textarea>
+
+      <br />
+
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</HtmlOutput>
+</details>

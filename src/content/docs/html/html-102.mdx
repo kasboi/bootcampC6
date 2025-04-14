@@ -1,0 +1,160 @@
+---
+title: HTML 1-02
+---
+
+import HtmlOutput from "../../../components/HtmlOutput"
+
+## Headings
+
+We begin the project by introducing headings which are mostly used for titles. We have 6 variants of headings `h1-h6` in HTML with decreasing font-size
+
+```html
+<h1>Heading 1...</h1>
+<h2>Heading 2...</h2>
+<h3>Heading 3...</h3>
+<h4>Heading 4...</h4>
+<h5>Heading 5...</h5>
+<h6>Heading 6...</h6>
+```
+
+### Output
+
+<details>
+  <summary>Toggle me!</summary>
+
+<HtmlOutput>
+  <h1>Heading 1...</h1>
+  <h2>Heading 2...</h2>
+  <h3>Heading 3...</h3>
+  <h4>Heading 4...</h4>
+  <h5>Heading 5...</h5>
+  <h6>Heading 6...</h6>
+</HtmlOutput>
+
+</details>
+
+Now, lets use this tag in our project
+
+```html title="/html_basics/index.html" {6,9-10}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - HTML Blog</title>
+  </head>
+  <body>
+    <h1>About Me</h1>
+    <h2>Introduction</h2>
+  </body>
+</html>
+```
+
+## Paragraphs
+
+HTML `<p>` tag is used to define a paragraph and it starts on a new line
+
+## Line break
+
+Used where breaks in lines are critical: Poem, address, etc.
+
+```html
+<p>
+  Line of poem<br />
+  Another line of the poem
+</p>
+```
+
+```html title="/html_basics/index.html" showLineNumbers {11-19}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - HTML Blog</title>
+  </head>
+  <body>
+    <h1>About Me</h1>
+    <h2>Introduction</h2>
+    <p>
+      Hi, I'm Erron Black, a passionate web developer. I love creating websites
+      that are both functional and aesthetically pleasing.
+    </p>
+    <p>
+      I've been coding for over 5 years, and I've worked with a variety of
+      languages, but my favorite by far is HTML because it is the foundation of
+      the web.
+    </p>
+  </body>
+</html>
+```
+
+## Quotations
+
+`<blockquote>` defines a quote from an external source
+
+```html title="/html_basics/index.html" showLineNumbers {20-23}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - HTML Blog</title>
+  </head>
+  <body>
+    <h1>About Me</h1>
+    <h2>Introduction</h2>
+    <p>
+      Hi, I'm Erron Black, a passionate web developer. I love creating websites
+      that are both functional and aesthetically pleasing.
+    </p>
+    <p>
+      I've been coding for over 5 years, and I've worked with a variety of
+      languages, but my favorite by far is HTML because it is the foundation of
+      the web.
+    </p>
+    <h2>My Philosophy</h2>
+    <blockquote>
+      "The best way to predict the future is to invent it." - Alan Kay
+    </blockquote>
+  </body>
+</html>
+```
+
+We have other forms of quotes such as `cite`, `address`, `abbr`, `q`. Read about them here: [w3schools](https://www.w3schools.com/html/html_quotation_elements.asp)
+
+### Code so far
+
+<details>
+<summary>Toggle me!</summary>
+
+<HtmlOutput>
+        <h1>About Me</h1>
+        <h2>Introduction</h2>
+        <p>
+            Hi, I'm Erron Black, a passionate web developer. I love creating
+            websites that are both functional and aesthetically pleasing.
+        </p>
+        <p>
+            I've been coding for over 5 years, and I've worked with a variety of
+            languages, but my favorite by far is HTML because it is the
+            foundation of the web.
+        </p>
+        <h2>My Philosophy</h2>
+        <Blockquote>
+            "The best way to predict the future is to invent it." - Alan Kay
+        </Blockquote>
+</HtmlOutput>
+</details>
+
+## SEO and Accessibility
+
+If you actually go through some of those quotation tags, you'll notice that some of them do not have visual output such as the `abbr` tag. You might be wondering what purpose it then serves
+
+To answer this, we need to understand that there are people who visit websites in different ways such as visually impaired people who use screen readers to access the pages. There's a need to make the pages accessible to them by properly tagging the texts so that screen reader devices can inform the user about what's on the page and its purpose
+
+Also, if you want the page to rank higher on search engine results, you need to properly apply tags so that the page comes up in appropriate search queries.
+
+export const Blockquote = ({ children }) => {
+  return <blockquote>{children}</blockquote>;
+};

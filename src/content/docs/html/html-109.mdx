@@ -1,0 +1,115 @@
+---
+
+title: HTML Semantics
+---
+
+## HTML Semantic Elements
+
+HTML is used to define the content and structure of a webpage. As developers, it's important to structure our websites in a **machine-readable** way—that is, in a way that clearly conveys the meaning of each part of the page.
+
+For example, the `<form>` tag is **semantic** because it clearly indicates that it contains form elements. Another example we've already seen is the `<table>` tag, which is used for tabular data.
+
+On the other hand, tags like `<div>` and `<span>` are **non-semantic**. Just by looking at them, it's hard to understand what purpose they serve in the document.
+
+Here's an example using non-semantic HTML:
+
+```html
+<div>
+  <span>Three words</span>
+  <div>
+    <a>one word</a>
+    <a>one word</a>
+    <a>one word</a>
+    <a>one word</a>
+  </div>
+</div>
+<div>
+  <div>
+    <div>five words</div>
+  </div>
+<div>
+  <div>three words</div>
+  <div>forty-six words</div>
+  <div>forty-four words</div>
+</div>
+<div>
+  <div>seven words</div>
+  <div>sixty-eight words</div>
+  <div>forty-four words</div>
+</div>
+</div>
+<div>
+  <span>five words</span>
+</div>
+```
+
+Just by reading the code above, it's difficult to understand what each section represents.
+
+Now here's a **semantic** version of the same structure:
+
+```html
+<header>
+  <h1>Three words</h1>
+  <nav>
+  <a>one word</a>
+  <a>one word</a>
+  <a>one word</a>
+  <a>one word</a>
+  </nav>
+</header>
+<main>
+  <header>
+    <h1>five words</h1>
+  </header>
+  <section>
+    <h2>three words</h2>
+    <p>forty-six words</p>
+    <p>forty-four words</p>
+  </section>
+  <section>
+    <h2>seven words</h2>
+    <p>sixty-eight words</p>
+    <p>forty-four words</p>
+  </section>
+</main>
+<footer>
+  <p>five words</p>
+</footer>
+```
+
+As you can see, semantic elements make the code much easier to understand—both for humans and machines.
+
+### Why Use Semantic HTML?
+
+Using semantic HTML provides several benefits:
+
+- **Improved accessibility** - screen readers and assistive technologies can better understand the content
+- **Better SEO** - search engines can more accurately index your pages
+- **Cleaner structure** - improves code readability and maintenance
+- **More consistent rendering** - browsers can better interpret the intent behind the content
+
+---
+
+## Common Semantic Elements
+
+Here are some semantic tags you'll frequently encounter:
+
+- `<section>`
+- `<header>`
+- `<nav>`
+- `<footer>`
+- `<main>`
+- `<article>`
+
+By their names, you can likely guess their purpose. While they behave similarly to `<div>` in layout, they carry **meaning**, which is essential for accessibility and SEO.
+
+There are over 50 semantic elements in HTML. We'll gradually explore them throughout the course.
+
+---
+
+## References
+
+1. [HTML Semantics - W3Schools](https://www.w3schools.com/html/html5_semantic_elements.asp)
+2. [Semantic HTML - MDN](https://developer.mozilla.org/en-US/curriculum/core/semantic-html/)
+3. [web.dev: Semantic HTML](https://web.dev/learn/html/semantic-html)
+```

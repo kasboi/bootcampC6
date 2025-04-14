@@ -2,11 +2,13 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "Bootcamp C6",
       social: {
         github: "https://github.com/withastro/starlight",
       },
@@ -25,25 +27,21 @@ export default defineConfig({
         },
         {
           label: "HTML Fundamentals",
-          items: [
-            {
-              label: "HTML 101",
-              slug: "html/html-101",
-            },
-          ],
+          autogenerate: { directory: "html" },
         },
-        {
-          label: "Guides",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", slug: "guides/example" },
-          ],
-        },
-        {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
-        },
+        // {
+        //   label: "Guides",
+        //   items: [
+        //     // Each item here is one entry in the navigation menu.
+        //     { label: "Example Guide", slug: "guides/example" },
+        //   ],
+        // },
+        // {
+        //   label: "Reference",
+        //   autogenerate: { directory: "reference" },
+        // },
       ],
     }),
+    react(),
   ],
 });

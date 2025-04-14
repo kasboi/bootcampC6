@@ -1,0 +1,239 @@
+---
+title: HTML 1-03
+---
+
+import HtmlOutput from "../../../components/HtmlOutput";
+import Blockquote from "../../../components/Blockquote";
+
+## Lists
+
+We have 3 types of lists in HTML, ordered, unordered and description lists.
+
+### Unordered List
+
+When defining a list, the first tag you use specifies the type of list you want to declare and within it you type the list items. Unordered list tag is represented by `<ul>` and list items by `<li>`
+
+```html {17-21}
+<body>
+  <h1>About Me</h1>
+  <h2>Introduction</h2>
+  <p>
+    Hi, I'm Erron Black, a passionate web developer. I love creating websites
+    that are both functional and aesthetically pleasing.
+  </p>
+  <p>
+    I've been coding for over 5 years, and I've worked with a variety of
+    languages, but my favorite by far is HTML because it is the foundation of
+    the web.
+  </p>
+  <h2>My Philosophy</h2>
+  <blockquote>
+    "The best way to predict the future is to invent it." - Alan Kay
+  </blockquote>
+  <h2>My Articles</h2>
+  <ul>
+    <li>How to Create a Signup Form</li>
+    <li>Simple Recipe Page</li>
+    <li>State and capital in Nigeria</li>
+    <li>Travel Destinations</li>
+  </ul>
+</body>
+```
+
+## Comments
+
+Comments are used to write some information that are ignored by the browser.
+
+```html {2,15,19}
+<body>
+  <!-- This is an example of a comment -->
+  <h1>About Me</h1>
+  <h2>Introduction</h2>
+  <p>
+    Hi, I'm Erron Black, a passionate web developer. I love creating websites
+    that are both functional and aesthetically pleasing.
+  </p>
+  <p>
+    I've been coding for over 5 years, and I've worked with a variety of
+    languages, but my favorite by far is HTML because it is the foundation of
+    the web.
+  </p>
+  <h2>My Philosophy</h2>
+  <!-- My favourite quote -->
+  <blockquote>
+    "The best way to predict the future is to invent it." - Alan Kay
+  </blockquote>
+  <!-- My blog articles -->
+  <h2>My Articles</h2>
+  <ul>
+    <li>How to Create a Signup Form</li>
+    <li>Simple Recipe Page</li>
+    <li>State and capital in Nigeria</li>
+    <li>Travel Destinations</li>
+  </ul>
+</body>
+```
+
+### Use case:
+
+- You encounter a bug and unsure of which part of your code might be causing it, so you might comment out some part of it and check if everything works fine, repeat this process as needed.
+- Comments are used to provide documentation about what a piece of code does for yourself and others who might read or inherit your codebase.
+
+You will find the concept of comments in every programming language you write later on
+
+## Links
+
+Here comes the hypertext part of the HTML. Links are used to connect pages to each other, like when you go to a corporate website and they have multiple pages such as `contact`, `about us`, `terms of use` etc. All these pages would be connected to each other through links.
+
+We use an anchor tag `<a>` for links. The anchor tag makes use of an attribute `href` which is necessary to dictate the location you want to take the user.
+
+```html
+<!-- Relative URL -->
+<!-- This takes the user to http://yourwbesite.com/about.html -->
+<a href="about.html">About us</a>
+
+<!-- Absolute URL -->
+<a href="https://instagram.com">About us</a>
+```
+
+### `target` attribute
+
+The default behaviour of the anchor tag is to open the link in the current window. To change this behaviour, you can use the target attribute
+
+```html
+<!-- Use target="_blank" to open the linked document in a new browser window or tab: -->
+<a href="https://instagram.com" target="_blank">Meta - instagram</a>
+
+<!-- The default: opens the link in the same window -->
+<a href="/contact.html" target="_self">Contact us</a>
+```
+
+### Project Continuation
+
+```html
+<body>
+    <!-- This is an example of a comment -->
+    <h1>About Me</h1>
+    <h2>Introduction</h2>
+    <p>
+        Hi, I'm Erron Black, a passionate web developer. I love creating
+        websites that are both functional and aesthetically pleasing.
+    </p>
+    <p>
+        I've been coding for over 5 years, and I've worked with a variety of
+        languages, but my favorite by far is HTML because it is the foundation
+        of the web.
+    </p>
+    <h2>My Philosophy</h2>
+    <!-- My favourite quote -->
+    <blockquote>
+        "The best way to predict the future is to invent it." - Alan Kay
+    </blockquote>
+    <!-- My blog articles -->
+    <h2>My Articles</h2>
+    <ul>
+        <li>How to Create a Signup Form</li>
+        <li>Simple Recipe Page</li>
+        <li>State and capital in Nigeria</li>
+        <li>Travel Destinations</li>
+    </ul>
+    <h2>HTML Links</h2>
+    <p>
+      <a href="https://google.com">This entire text will take you to the Google homepage</a>
+    </p>
+    <p>
+      This <a href="https://wikipedia.com">link</a> takes you to wikipedia.
+    </p>
+</body
+```
+
+### Code so far
+
+<details>
+    <summary>Toggle me!</summary>
+    <HtmlOutput>
+        <h1>About Me</h1>
+        <h2>Introduction</h2>
+        <p>
+            Hi, I'm Erron Black, a passionate web developer. I love creating
+            websites that are both functional and aesthetically pleasing.
+        </p>
+        <p>
+            I've been coding for over 5 years, and I've worked with a variety of
+            languages, but my favorite by far is HTML because it is the
+            foundation of the web.
+        </p>
+        <h2>My Philosophy</h2>
+
+        <Blockquote>
+            "The best way to predict the future is to invent it." - Alan Kay
+        </Blockquote>
+
+        <h2>My Articles</h2>
+        <ul>
+            <li>How to Create a Signup Form</li>
+            <li>Simple Recipe Page</li>
+            <li>State and capital in Nigeria</li>
+            <li>Travel Destinations</li>
+        </ul>
+        <h2>HTML Links</h2>
+        <p>
+            <a href="https://google.com" style={{color: "blue"}}>
+                This entire text will take you to the Google homepage
+            </a>
+        </p>
+        <p>
+            This <a href="https://wikipedia.com" style={{color: "blue"}}>link</a> takes you to
+            wikipedia.
+        </p>
+    </HtmlOutput>
+
+</details>
+
+:::note
+The default colour of links is a shade of blue but your links might appear purple which indicates visited. This is usually because the link has been visited before especially for popular ones like Google.
+:::
+
+## Images
+
+The `img` tag is used to display images/grahical content on the webpage. It requires the `src` (source) attribute to determine the location of the intended image. An optional but recommended attribute called `alt` is also available in case the image cannot be rendered and also for screen readers.
+
+First create a new folder `img` to keep the images
+
+import {FileTree} from "@astrojs/starlight/components";
+
+<FileTree>
+- html_basics
+  - index.html
+  - img
+    - cute_dog.jpg
+    - doggo.jpg
+</FileTree>
+
+```html
+<h2>Random pictures of dogs</h2>
+<img src="./img/cute_dog.jpg" />
+<img src="./img/doggo.jpg" />
+```
+import { Image } from 'astro:assets';
+import dog1 from "../../../assets/cute_dog.jpg";
+import dog2 from "../../../assets/doggo.jpg";
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <h2>Random pictures of dogs</h2>
+    <Image src={dog1} alt="Image of a puppy" />
+    <Image src={dog2} alt="Image of two puppies" />
+    <img src="" alt="This is a broken image" />
+  </HtmlOutput>
+</details>
+
+## References
+
+1. [HTML Lists](https://www.w3schools.com/html/html_lists.asp)
+
+- [Description List](https://www.w3schools.com/html/html_lists_other.asp)
+
+2. [HTML Links](https://www.w3schools.com/html/html_links.asp)
+3. [HTML Elements References](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)

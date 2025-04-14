@@ -1,0 +1,13 @@
+/* Anchor tag rendering */
+
+.anchor a {
+  color: blue;
+  text-decoration: none;
+  border-bottom: 1px solid blue;
+}
+
+.anchor a:hover {
+  color: rgb(64, 64, 252);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(64, 64, 252);
+}
