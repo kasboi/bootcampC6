@@ -1,0 +1,857 @@
+---
+title: Common CSS Properties
+---
+
+import HtmlOutput from "../../../components/HtmlOutput";
+
+## Color
+
+You can use predefined colour names, RGB, RGBA, HSL or HSLA format for defining text, background or border colour.
+
+### Text Colour — `color`
+
+```html
+<p style="color: tomato;">
+  Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi cum malesuada
+  accumsan
+</p>
+<p style="color: dodgerblue;">
+  Tortor tellus facilisis tristique dapibus vehicula sociis iaculis dignissim
+  augue interdum purus euismod fermentum natoque
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p style={{ color: "tomato" }}>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi cum
+      malesuada accumsan
+    </p>
+    <p style={{ color: "dodgerblue" }}>
+      Tortor tellus facilisis tristique dapibus vehicula sociis iaculis
+      dignissim augue interdum purus euismod fermentum natoque
+    </p>
+  </HtmlOutput>
+</details>
+
+### Background Colour — `background-color`
+
+```html
+<h1 style="background-color:DodgerBlue; color: #fff">Hello World</h1>
+<p style="background-color:Tomato;">Lorem ipsum...</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <h1 style={{ backgroundColor: "DodgerBlue", color: "#fff" }}>
+      Hello World
+    </h1>
+    <p style={{ backgroundColor: "Tomato" }}>Lorem ipsum...</p>
+  </HtmlOutput>
+</details>
+
+## Borders
+
+The css border property is defines the border `width`, `style` and `colour` of an elements border. The border width and style are required to see any visual output
+
+```html
+<p style="color: dodgerblue; border: 2px solid lemongreen;">
+  Tortor tellus facilisis tristique dapibus vehicula sociis iaculis dignissim
+  augue interdum purus euismod fermentum natoque
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p style={{ color: "dodgerblue", border: "3px solid rebeccapurple" }}>
+      Tortor tellus facilisis tristique dapibus vehicula sociis iaculis
+      dignissim augue interdum purus euismod fermentum natoque
+    </p>
+  </HtmlOutput>
+</details>
+
+### `border-width`
+
+The `border-width` property specifies the width of the four borders.
+
+```html
+<p style="color: dodgerblue; border-width: 4px; border-style: solid">
+  Tortor tellus facilisis tristique dapibus vehicula sociis iaculis dignissim
+  augue interdum purus euismod fermentum natoque
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p
+      style={{
+        color: "dodgerblue",
+        borderWidth: "4px",
+        borderStyle: "solid",
+      }}
+    >
+      Tortor tellus facilisis tristique dapibus vehicula sociis iaculis
+      dignissim augue interdum purus euismod fermentum natoque
+    </p>
+  </HtmlOutput>
+</details>
+
+:::note
+When the border colour is not defined, it defaults to the `colour` of the element.
+:::
+
+#### Specific side widths
+
+```html
+<style>
+  p.one {
+    border-style: solid;
+    border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
+  }
+
+  p.two {
+    border-style: solid;
+    border-width: 20px 5px; /* 20px top and bottom, 5px on the sides */
+  }
+
+  p.three {
+    border-style: solid;
+    border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
+  }
+
+  p.four {
+    border-style: solid;
+    border-top-width: 10px;
+    border-right-width: 20px;
+    border-bottom-width: 30px;
+    border-left-width: 5px;
+  }
+</style>
+<p class="one">Metus orci ultrices tempor platea ut pharetra mus accumsan.</p>
+<p class="two">Metus orci ultrices tempor platea ut pharetra mus accumsan.</p>
+<p class="three">Metus orci ultrices tempor platea ut pharetra mus accumsan.</p>
+<p class="four">Metus orci ultrices tempor platea ut pharetra mus accumsan.</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p
+      style={{
+        borderStyle: "solid",
+        borderWidth: "5px 20px",
+      }}
+    >
+      Metus orci ultrices tempor platea ut pharetra mus accumsan.
+    </p>
+    <p
+      style={{
+        borderStyle: "solid",
+        borderWidth: "20px 5px",
+      }}
+    >
+      Metus orci ultrices tempor platea ut pharetra mus accumsan.
+    </p>
+    <p
+      style={{
+        borderStyle: "solid",
+        borderWidth: "25px 10px 4px 35px",
+      }}
+    >
+      Metus orci ultrices tempor platea ut pharetra mus accumsan.
+    </p>
+    <p
+      style={{
+        borderStyle: "solid",
+        borderTopWidth: "10px",
+        borderRightWidth: "20px",
+        borderBottomWidth: "30px",
+        borderLeftWidth: "5px",
+      }}
+    >
+      Metus orci ultrices tempor platea ut pharetra mus accumsan.
+    </p>
+  </HtmlOutput>
+</details>
+
+### `border-style`
+
+The `border-style` property specifies the type of border to be used.
+
+Most used ones are: `solid`, `dotted`, `dashed`, `none`
+
+Other styles are - `double`, `groove`, `ridge`, `inset`, `outset`, `hidden`
+
+```html
+<style>
+  p.one {
+    border-style: solid;
+    border-color: red;
+  }
+
+  p.two {
+    border-style: solid;
+    border-color: green;
+  }
+
+  p.three {
+    border-style: dotted;
+    border-color: blue;
+  }
+</style>
+<body>
+  <h2>The border-color Property</h2>
+  <p>This property specifies the color of the four borders:</p>
+
+  <p class="one">A solid red border</p>
+  <p class="two">A solid green border</p>
+  <p class="three">A dotted blue border</p>
+
+  <p>
+    <b>Note:</b> The "border-color" property does not work if it is used alone.
+    Use the "border-style" property to set the borders first.
+  </p>
+</body>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p
+      style={{
+        borderStyle: "solid",
+        borderColor: "red",
+      }}
+    >
+      A solid red border
+    </p>
+    <p
+      style={{
+        borderStyle: "solid",
+        borderColor: "red",
+      }}
+    >
+      A solid green border
+    </p>
+    <p
+      style={{
+        borderStyle: "solid",
+        borderColor: "red",
+      }}
+    >
+      A dotted blue border
+    </p>
+    <p>
+      <b>Note:</b> The "border-color" property does not work if it is used
+      alone. Use the "border-style" property to set the borders first.
+    </p>
+  </HtmlOutput>
+</details>
+
+### `border-radius`
+
+This property adds a degree of roundness to the borders of an element
+
+```html
+<style>
+  p.one {
+    border-style: solid;
+    padding: 15px;
+    border-color: red;
+    border-radius: 5px;
+  }
+
+  p.two {
+    border-style: solid;
+    padding: 15px;
+    border-color: green;
+    border-radius: 10px 20px;
+  }
+
+  p.three {
+    border-style: dotted;
+    padding: 15px;
+    border-color: blue;
+    border-radius: 24px;
+  }
+</style>
+<body>
+  <h2>The border-color Property</h2>
+  <p>This property specifies the color of the four borders:</p>
+
+  <p class="one">A solid red border</p>
+  <p class="two">A solid green border</p>
+  <p class="three">A solid purple border</p>
+
+  <p>
+    <b>Note:</b> The "border-color" property does not work if it is used alone.
+    Use the "border-style" property to set the borders first.
+  </p>
+</body>
+```
+
+<details>
+    <summary>Toggle me!</summary>
+    <HtmlOutput>
+        <p
+            style={{
+                borderStyle: "solid",
+                padding: "15px",
+                borderColor: "red",
+                borderRadius: "5px",
+            }}
+        >
+            A solid red border
+        </p>
+        <p
+            style={{
+                borderStyle: "solid",
+                padding: "15px",
+                borderColor: "green",
+                borderRadius: "10px 20px",
+
+            }}
+        >
+            A solid green border
+        </p>
+        <p
+            style={{
+                borderStyle: "dotted",
+                padding: "15px",
+                borderColor: "rebeccapurple",
+                borderRadius: "24px",
+
+            }}
+        >
+            A dotted purple border
+        </p>
+        <p>
+            <b>Note:</b> The "border-color" property does not work if it is used
+            alone. Use the "border-style" property to set the borders first.
+        </p>
+    </HtmlOutput>
+
+</details>
+
+:::note
+The `border-radius` property is a shorthand for `border-top-left-radius`, `border-top-right-radius`, `border-bottom-right-radius` and `border-bottom-left-radius`.
+
+`border-radius`: '10px 20px' specifies
+
+`border-top-left-radius`: 10px;
+
+`border-top-right-radius`: 20px;
+
+`border-bottom-right-radius`: 10px;
+
+`border-bottom-left-radius`: 20px;
+:::
+
+## Fonts
+
+We use fonts to determine how texts appear on a webpage and choosing the right font is important for setting the tone and user experience.
+
+### `font-family`
+
+This is used to specify the font name and fallbacks
+
+```css
+.p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+```
+
+- "Times New Roman" - This is the preferred font and the browser will try to get it from the users computer or external source (if specified)
+- Times and Serif - These are fallbacks fonts to be used if the preferred font is unavailable.
+
+### `font-size`
+
+This property sets the text size. We use font sizes to differentiate between different types of texts such as headings and paragraphs.
+
+`font-size` can take absolute (fixed) or relative (depends on surrounding elements) values.
+
+The default font size for normal texts like paragraph is `16px`
+
+### Default font sizes
+
+The default font-size for normal is 16px and this is the base used for defining other elements default font size
+
+| Element                  | CSS Font Size | Calculated Font Size (Assuming base 16px) |
+| ------------------------ | ------------- | ----------------------------------------- |
+| `body`                   | 16px          | 16px                                      |
+| `h1`                     | 2em           | 32px (2 \* 16px)                          |
+| `h2`                     | 1.5em         | 16px (1.5 \* 16px)                        |
+| `h3`                     | 1.17em        | 18.72px (1.17 \* 16px)                    |
+| `h4`                     | 1em           | 16px (1 \* 16px)                          |
+| `h5`                     | 0.83em        | 13.28px (0.83 \* 16px)                    |
+| `h6`                     | 0.67em        | 10.72px (0.67 \* 16px)                    |
+| `p`                      | 1em           | 16px (1 \* 16px)                          |
+| `small`                  | 0.8em         | 12.8px (0.8 \* 16px)                      |
+| `strong`, `b`, `em`, `i` | 1em           | 16px (1 \* 16px)                          |
+| `blockquote`             | 1.17em        | 18.72px (1.17 \* 16px)                    |
+| `ul`, `ol`, `li`         | 1em           | 16px (1 \* 16px)                          |
+
+We will get more familiar with relative and absolute units as move on in the curriculum.
+
+## Text
+
+### `color`
+
+We use the `color` property to specify text colour
+
+### `background-color`
+
+This property specifies the background colour of the text
+
+### `text-align`
+
+The `text-align` property is used to set the horizontal alignment of a text. The default is left
+
+```html
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    text-align: right;
+  }
+
+  #second {
+    text-align: justify;
+  }
+</style>
+
+<h1>This is heading 1</h1>
+<p>
+  Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi cum malesuada
+  accumsan
+</p>
+<p id="second">
+  Tortor tellus facilisis tristique dapibus vehicula sociis iaculis dignissim
+  augue interdum purus euismod fermentum natoque
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <h1 style={{ textAlign: "center" }}>This is heading 1</h1>
+    <p style={{ textAlign: "right" }}>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi cum
+      malesuada accumsan
+    </p>
+    <p style={{ textAlign: "justify" }}>
+      Tortor tellus facilisis tristique dapibus vehicula sociis iaculis
+      dignissim augue interdum purus euismod fermentum natoque
+    </p>
+  </HtmlOutput>
+</details>
+
+:::note
+We have more properties for specifying text alignment such as `text-align-last`, `vertical-align` and `direction`
+:::
+
+### `text-decoration`
+
+The `text-decoration` property is a shorthand for 4 properties:
+
+- text-decoration-line
+- text-decoration-color
+- text-decoration-style
+- text-decoration-thickness
+
+Here are simple examples to explain how the `text-decoration` property works as a shorthand for its four sub-properties:
+
+#### **1. `text-decoration-line`**
+
+This defines what type of text decoration is applied, like underline, overline, or line-through.
+
+**Example:**
+
+```html
+<p style="text-decoration-line: underline;">This text is underlined.</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p style={{ textDecorationLine: "underline" }}>This text is underlined.</p>
+  </HtmlOutput>
+</details>
+
+#### **2. `text-decoration-color`**
+
+This sets the color of the text decoration (underline, overline, etc.).
+
+**Example:**
+
+```html
+<p style="text-decoration-line: underline; text-decoration-color: red;">
+  This text has a red underline.
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p style={{ textDecorationLine: "underline", textDecorationColor: "red" }}>
+      This text has a red underline.
+    </p>
+  </HtmlOutput>
+</details>
+
+#### **3. `text-decoration-style`**
+
+This defines the style of the text decoration line (solid, dotted, dashed, etc.).
+
+**Example:**
+
+```html
+<p style="text-decoration-line: underline; text-decoration-style: dotted;">
+  This text has a dotted underline.
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p
+      style={{ textDecorationLine: "underline", textDecorationStyle: "dotted" }}
+    >
+      This text has a dotted underline.
+    </p>
+  </HtmlOutput>
+</details>
+
+#### **4. `text-decoration-thickness`**
+
+This specifies the thickness of the text decoration line.
+
+**Example:**
+
+```html
+<p style="text-decoration-line: underline; text-decoration-thickness: 3px;">
+  This text has a thick underline.
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p
+      style={{
+        textDecorationLine: "underline",
+        textDecorationThickness: "3px",
+      }}
+    >
+      This text has a thick underline.
+    </p>
+  </HtmlOutput>
+</details>
+
+---
+
+#### **Combining with Shorthand: `text-decoration`**
+
+The `text-decoration` property can combine all four properties into a single declaration.
+
+**Example:**
+
+```html
+<p style="text-decoration: underline red dotted 3px;">
+  This text has a red, dotted, thick underline.
+</p>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p style={{ textDecoration: "underline red dotted 3px" }}>
+      This text has a red, dotted, thick underline.
+    </p>
+  </HtmlOutput>
+</details>
+
+This shorthand example applies:
+
+- `underline` (line),
+- `red` (color),
+- `dotted` (style),
+- `3px` (thickness).
+
+This simplifies applying multiple text decoration styles in one line.
+
+## Margin
+
+The `margin` property is a shorthand for four individual margin properties that control the space outside an element's border. These properties are:
+
+- `margin-top`
+- `margin-right`
+- `margin-bottom`
+- `margin-left`
+
+### **`margin-top`**
+
+Defines the space at the top of an element.
+
+**Example:**
+
+```html
+<div style="margin-top: 20px;">This div has a 20px margin on top.</div>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ marginTop: "20px" }}>This div has a 20px margin on top.</div>
+  </HtmlOutput>
+</details>
+
+### **`margin-right`**
+
+Sets the space on the right side of an element.
+
+**Example:**
+
+```html
+<div style="margin-right: 30px;">This div has a 30px margin on the right.</div>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ marginRight: "30px" }}>
+      This div has a 30px margin on the right.
+    </div>
+  </HtmlOutput>
+</details>
+
+### **`margin-bottom`**
+
+Specifies the space at the bottom of an element.
+
+**Example:**
+
+```html
+<div style="margin-bottom: 15px;">
+  This div has a 15px margin at the bottom.
+</div>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ marginBottom: "15px" }}>
+      This div has a 15px margin at the bottom.
+    </div>
+  </HtmlOutput>
+</details>
+
+### **`margin-left`**
+
+Defines the space on the left side of an element.
+
+**Example:**
+
+```html
+<div style="margin-left: 25px;">This div has a 25px margin on the left.</div>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ marginLeft: "25px" }}>
+      This div has a 25px margin on the left.
+    </div>
+  </HtmlOutput>
+</details>
+
+---
+
+### **Combining with Shorthand: `margin`**
+
+The `margin` property allows you to set all four margins in one declaration. You can specify different values for top, right, bottom, and left, or use a single value to apply to all sides.
+
+**Examples:**
+
+**All sides the same:**
+
+````html
+<div style="margin: 10px;">This div has a 10px margin on all sides.</div>
+```
+
+<details>
+    <summary>Toggle me!</summary>
+    <HtmlOutput>
+        <div style={{ margin: "10px", border: "2px solid dodgerblue" }}>
+            This div has a 10px margin on all sides.
+        </div>
+    </HtmlOutput>
+</details>
+
+**Vertical (top and bottom) and horizontal (left and right) margins:**
+
+```html
+<div style="margin: 20px 30px;">
+    This div has 20px top and bottom, and 30px left and right margins.
+</div>
+````
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ margin: "20px 30px", border: "2px solid dodgerblue" }}>
+      This div has 20px top and bottom, and 30px left and right margins.
+    </div>
+  </HtmlOutput>
+</details>
+
+**All four sides different:**
+
+```html
+<div style="margin: 10px 20px 30px 40px;">
+  This div has 10px top, 20px right, 30px bottom, and 40px left margins.
+</div>
+```
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div
+      style={{ margin: "10px 20px 30px 40px", border: "2px solid dodgerblue" }}
+    >
+      This div has 10px top, 20px right, 30px bottom, and 40px left margins.
+    </div>
+  </HtmlOutput>
+</details>
+
+In the shorthand syntax:
+
+- The first value applies to `margin-top`.
+- The second applies to `margin-right`.
+- The third applies to `margin-bottom`.
+- The fourth applies to `margin-left`.
+
+Using the shorthand simplifies setting margins for different sides of an element.
+
+## Padding
+
+The `padding` property is used to create space around an element's content, inside of any defined borders.
+
+### **`padding-top`**
+
+**Example:**
+
+```html
+<div style="padding-top: 20px; border: 2px solid black;">
+  This div has 20px padding at the top.
+</div>
+```
+
+**JSX:**
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ paddingTop: "20px", border: "2px solid black" }}>
+      This div has 20px padding at the top.
+    </div>
+  </HtmlOutput>
+</details>
+
+---
+
+### **padding-right`**
+
+**Example:**
+
+```html
+<div style="padding-right: 30px; border: 2px solid black;">
+  This div has 30px padding on the right.
+</div>
+```
+
+**JSX:**
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ paddingRight: "30px", border: "2px solid black" }}>
+      This div has 30px padding on the right.
+    </div>
+  </HtmlOutput>
+</details>
+
+---
+
+### **padding-bottom`**
+
+**Example:**
+
+```html
+<div style="padding-bottom: 15px; border: 2px solid black;">
+  This div has 15px padding at the bottom.
+</div>
+```
+
+**JSX:**
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ paddingBottom: "15px", border: "2px solid black" }}>
+      This div has 15px padding at the bottom.
+    </div>
+  </HtmlOutput>
+</details>
+
+---
+
+### **padding-left`**
+
+**Example:**
+
+```html
+<div style="padding-left: 25px; border: 2px solid black;">
+  This div has 25px padding on the left.
+</div>
+```
+
+**JSX:**
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ paddingLeft: "25px", border: "2px solid black" }}>
+      This div has 25px padding on the left.
+    </div>
+  </HtmlOutput>
+</details>
+
+---
+
+### **Shorthand: All sides the same**
+
+**Example:**
+
+```html
+<div style="padding: 10px; border: 2px solid black;">
+  This div has 10px padding on all sides.
+</div>
+```
+
+**JSX:**
+
+<details>
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <div style={{ padding: "10px", border: "2px solid black" }}>
+      This div has 10px padding on all sides.
+    </div>
+  </HtmlOutput>
+</details>

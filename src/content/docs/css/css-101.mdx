@@ -1,0 +1,220 @@
+---
+title: CSS — Cascading Style Sheet
+---
+
+import HtmlOutput from "../../../components/HtmlOutput";
+
+## CSS — Cascading Style Sheet
+
+We use CSS to apply visual styling to our HTML. It describes how HTML elements are to be displayed on screen, paper, or in other media.
+
+CSS is really powerful and can accomplish a wide variety of things: colors, sizes, order, positioning, hiding, showing, animation, etc.
+
+We can write styles within HTML itself using the `style` attribute or using the `<style>` tag. We can also write it in an external document with a `.css` document extension, this is called an external stylesheet and the most common way of writing CSS.
+
+[CSS in action!](https://jsbin.com/zogayeveto/edit?html,output)
+
+## CSS Syntax
+
+Syntax are the rules of writing proper CSS
+
+```html
+<style>
+  p {
+    color: hotpink;
+    border: 2px solid teal;
+  }
+</style>
+
+<h1>Introduction to CSS</h1>
+<p>
+  Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum non
+  congue nullam. Molestie quisque consequat faucibus mattis taciti vehicula
+  ornare maecenas nascetur magnis ligula nec.
+</p>
+```
+
+### Output
+
+<HtmlOutput>
+  <h1>Introduction to CSS</h1>
+  <p style={{ color: "hotpink", border: "2px solid teal" }}>
+    Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum non
+    congue nullam. Molestie quisque consequat faucibus mattis taciti vehicula
+    ornare maecenas nascetur magnis ligula nec.
+  </p>
+</HtmlOutput>
+
+### Code Breakdown
+
+1. `h1` - This is the selector and every element that matches the selector is going to have the styles specified within the `{ }` applied to it. We can use element, ids or classes amongst others as selectors.
+2. `color` & `border` - These two are properties which affect various aspects of the element. The `color` property manages the text colour while the `border` property sets the border-width, style and colour of the element. CSS has hundreds of properties that can control almost every aspect of how elements appear and behave.
+3. `hotpink` & `2px solid teal` - These are values which specify the value of each of the properties. `hotpink` sets the text colour.
+4. `;` - Every property-value pair will end in a semicolon.
+
+## Class Selectors
+
+- First attach a class to an element via `class` attribute.
+- An element can have multiple classes.
+- Select classes in CSS by prefixing the class name with a `.`
+
+```html
+<style>
+  .warning {
+    color: orange;
+    font-weight: bold;
+  }
+</style>
+
+<p class="warning">This paragraph displays a warning!</p>
+```
+
+<HtmlOutput>
+  <div class="warning" style={{ color: "orange", fontWeight: "bold" }}>
+    This paragraph displays a warning!
+  </div>
+</HtmlOutput>
+
+## ID Selector
+
+- Attach an ID to an element via `id` attribute.
+- An element should have one unique id
+
+```html
+<style>
+  #danger {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+</style>
+
+<p id="danger">
+  This text is uppercase, bold, and red, and it's uniquely marked because you should only use an ID once per page.
+</p>
+```
+
+<HtmlOutput>
+  <div
+    class="warning"
+    style={{ color: "red", fontWeight: "bold", textTransform: "uppercase" }}
+  >
+    This text is uppercase, bold, and red, and and it's uniquely marked because you should only use an ID once per page.
+  </div>
+</HtmlOutput>
+
+## Descendant Selectors
+
+This is a combination of one or more classes, IDs, or elements, separated by spaces, to indicate a family relationship.
+
+```html
+<style>
+  .warning p {
+    color: violet;
+  }
+</style>
+
+<article class="warning">
+  <p>All paragraphs in this article will have a color of violet.</p>
+  <p>This paragraph too! No more classes needed!</p>
+</article>
+```
+
+<HtmlOutput>
+  <article class="warning">
+    <p style={{ color: "violet" }}>
+      All paragraphs in this article will have a color of violet.
+    </p>
+    <p style={{ color: "violet" }}>
+      This paragraph too! No more classes needed!
+    </p>
+  </article>
+</HtmlOutput>
+
+## Grouping Selectors
+
+You can pick multiple selectors and apply the same styling to them at once.
+
+```html
+<style>
+  h1,
+  h2 {
+    color: green;
+  }
+</style>
+
+<article>
+  <h1>This heading is green</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum non
+    congue nullam.
+  </p>
+  <h2>This heading is also green</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum non
+    congue nullam.
+  </p>
+</article>
+```
+
+<HtmlOutput>
+  <article>
+    <h1 style={{ color: "green" }}>This heading is green</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum
+      non congue nullam.
+    </p>
+    <h2 style={{ color: "green" }}>This heading is also green</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum
+      non congue nullam.
+    </p>
+  </article>
+</HtmlOutput>
+
+We have other ways of selecting elements such as combinator, pseudo-class, pseudo-elements and attribute selectors. We will touch upon them as we work on projects.
+
+## Inline Styling
+
+We can also apply styles directly to an HTML element using the `style` attribute:
+
+```html
+<p style="color: blue; font-size: 20px;">Styled using inline CSS</p>
+
+
+## Importing External Stylesheets
+
+We've seen how to use the `style` attributes and `<style>` tags for applying styles but the most common one we will be using is the external stylesheet. To use external stylesheets, create a new file and give it a `.css` extension. Example: `style.css`
+
+To direct the browser to use the stylesheet, you need to specify its location within the `<head>` element using the `<link>` tag.
+
+```html
+<!-- Some code -->
+<head>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<!-- Some code -->
+```
+
+## Comments
+
+Just like in HTML, we can have comments within our CSS styles which do not get parsed by the browser.
+
+```css
+/* This comment gets ignored by the browser */
+p {
+  color: chocolate;
+  background-color: hotpink;
+}
+/* Comments are useful for code documentation */
+```
+
+## CSS Recap
+
+- **Selectors**: Target elements to apply styles (`p`, `.class`, `#id`)
+- **Properties**: Define what you're styling (e.g. `color`, `font-size`)
+- **Values**: Specify how the styling should look (`hotpink`, `16px`, `solid`)
+- **Where to Write**: 
+  - Inline (`style` attribute)
+  - Internal (`<style>` tag)
+  - External (`.css` file linked via `<link>`)
