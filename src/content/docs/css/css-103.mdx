@@ -6,114 +6,114 @@ import HtmlOutput from "../../../components/HtmlOutput";
 
 ## Cascading
 
-Cascade means for something to flow from top to bottom like a waterfall. What this means for CSS is that the rules are checked from the top to the bottom, and whenever we have two conflicting rules with the same `specificity` (will cover this later) the one that comes later will used.
+Cascade means for something to flow from top to bottom like a waterfall. In CSS, this refers to how styles are applied when multiple rules target the same element — the rules are checked from top to bottom, and **the most specific or latest rule wins**.
+
+If two conflicting rules have **the same specificity**, the **last one declared** in the code takes precedence.
 
 ### Example
 
 ```html
 <style>
-    .title {
-        color: red;
-    }
+  .title {
+    color: red;
+  }
 
-    .title {
-        color: green;
-    }
+  .title {
+    color: green;
+  }
 </style>
+
 <p class="title">
-    Molestie quisque consequat faucibus mattis taciti vehicula ornare maecenas
-    nascetur magnis ligula nec.
+  Molestie quisque consequat faucibus mattis taciti vehicula ornare maecenas
+  nascetur magnis ligula nec.
 </p>
 ```
 
 <HtmlOutput>
-    <p style={{ color: "green" }}>
-        Molestie quisque consequat faucibus mattis taciti vehicula ornare
-        maecenas nascetur magnis ligula nec.
-    </p>
+  <p style={{ color: "green" }}>    Molestie quisque consequat faucibus mattis taciti vehicula ornare maecenas
+    nascetur magnis ligula nec.  </p>
 </HtmlOutput>
+
+In the example above, both rules target the same class, `.title`. Since they have the **same specificity**, the second rule (`color: green`) overrides the first.
+
+---
 
 ## Specificity
 
-This is a term that describes the power of selectors. Different selectors have _specific_ overriding power i.e if multiple CSS rules target the same element, the rule with the highest specificity value will take precedence, and its style will be applied to the HTML element.
+**Specificity** describes the "weight" or "strength" of CSS selectors. If multiple rules target the same element, the one with the **higher specificity** wins — regardless of order (unless the specificity is equal).
 
-### Examples
-
-1. Example 1:
+### Example 1:
 
 ```html
-<html>
-    <head>
-        <style>
-            #example {
-                color: hotpink;
-            }
-            .sample {
-                color: chocolate;
-            }
-            p {
-                color: maroon;
-            }
-        </style>
-    </head>
-    <body>
-        <p id="example" class="sample">Specificity can be slimy!</p>
-    </body>
-</html>
+<style>
+  #example {
+    color: hotpink;
+  }
+  .sample {
+    color: chocolate;
+  }
+  p {
+    color: maroon;
+  }
+</style>
+
+<p id="example" class="sample">Specificity can be slimy!</p>
 ```
 
-**OUTPUT**
+**Output:**
 
 <details>
-    <summary>Toggle me!</summary>
-    <HtmlOutput>
-        <p id="example" className="sample" style={{ color: "hotpink" }}>
-            Specificity can be slimy.
-        </p>
-    </HtmlOutput>
-    The `id` selector has a higher specificity than both `.class` and element
-    selector.
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p id="example" className="sample" style={{ color: "hotpink" }}>      Specificity can be slimy!    </p>
+  </HtmlOutput>
+  The `id` selector has a higher specificity than both `.class` and element selectors.
 </details>
 
-2. Example 2:
+---
+
+### Example 2:
 
 ```html
-<html>
-    <head>
-        <style>
-            .sample {
-                color: chocolate;
-            }
-            p {
-                color: maroon;
-            }
-        </style>
-    </head>
-    <body>
-        <p class="sample">Specificity can be slimy!</p>
-    </body>
-</html>
+<style>
+  .sample {
+    color: chocolate;
+  }
+  p {
+    color: maroon;
+  }
+</style>
+
+<p class="sample">Specificity can be slimy!</p>
 ```
 
-**OUTPUT**
+**Output:**
 
 <details>
-    <summary>Toggle me!</summary>
-    <HtmlOutput>
-        <p className="sample" style={{ color: "chocolate" }}>
-            Specificity can be slimy!
-        </p>
-    </HtmlOutput>
-    The `.class` selector has a higher specificity than an element selector.
+  <summary>Toggle me!</summary>
+  <HtmlOutput>
+    <p className="sample" style={{ color: "chocolate" }}>Specificity can be slimy!</p>
+  </HtmlOutput>
+  
+  The `.class` selector overrides the element selector because it has higher specificity.
 </details>
 
-### Heirachy
+---
 
-Every CSS selector occupies a specific position within the specificity hierarchy.
+## Specificity Hierarchy
 
-There are four categories that determine a selector's specificity level:
+Here's the order of selector specificity, from highest to lowest:
 
-1. Inline styles - Example: `<h1 style="color: pink;">`
-2. IDs - Example: `#navbar`
-3. Classes, pseudo-classes, attribute selectors - Example: `.test`, `:hover`, `[href]`
-4. Elements and pseudo-elements - Example: `h1`, `::before`
+1. **Inline styles** (e.g., `style="color: pink;"`)  
+2. **IDs** (e.g., `#navbar`)  
+3. **Classes, pseudo-classes, attribute selectors** (e.g., `.btn`, `:hover`, `[type="text"]`)  
+4. **Element and pseudo-element selectors** (e.g., `div`, `h1`, `::before`)
+
+---
+
+## Summary
+
+- CSS rules "cascade" from top to bottom.
+- If two rules have the same specificity, the one **lower in the stylesheet** wins.
+- The rule with **higher specificity** always overrides lower specificity.
+- Use inline styles and `!important` cautiously, as they can make styles harder to manage.

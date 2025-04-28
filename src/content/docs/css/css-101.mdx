@@ -4,7 +4,6 @@ title: CSS — Cascading Style Sheet
 
 import HtmlOutput from "../../../components/HtmlOutput";
 
-## CSS — Cascading Style Sheet
 
 We use CSS to apply visual styling to our HTML. It describes how HTML elements are to be displayed on screen, paper, or in other media.
 
@@ -14,15 +13,19 @@ We can write styles within HTML itself using the `style` attribute or using the 
 
 [CSS in action!](https://jsbin.com/zogayeveto/edit?html,output)
 
+Good work! Your explanation is already clear, but here's a **review, correction, and slight improvement** to make it even more professional and easier to read:
+
+---
+
 ## CSS Syntax
 
-Syntax are the rules of writing proper CSS
+CSS syntax defines the rules for writing correct CSS code.
 
 ```html
 <style>
   p {
     color: hotpink;
-    border: 2px solid teal;
+    border: 4px solid teal;
   }
 </style>
 
@@ -34,29 +37,43 @@ Syntax are the rules of writing proper CSS
 </p>
 ```
 
-### Output
-
 <HtmlOutput>
   <h1>Introduction to CSS</h1>
-  <p style={{ color: "hotpink", border: "2px solid teal" }}>
-    Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum non
+  <p style={{ color: "hotpink", border: "4px solid teal" }}>    Lorem ipsum dolor sit amet consectetur adipiscing elit, ornare vitae cum non
     congue nullam. Molestie quisque consequat faucibus mattis taciti vehicula
-    ornare maecenas nascetur magnis ligula nec.
-  </p>
+    ornare maecenas nascetur magnis ligula nec.  </p>
 </HtmlOutput>
 
 ### Code Breakdown
 
-1. `h1` - This is the selector and every element that matches the selector is going to have the styles specified within the `{ }` applied to it. We can use element, ids or classes amongst others as selectors.
-2. `color` & `border` - These two are properties which affect various aspects of the element. The `color` property manages the text colour while the `border` property sets the border-width, style and colour of the element. CSS has hundreds of properties that can control almost every aspect of how elements appear and behave.
-3. `hotpink` & `2px solid teal` - These are values which specify the value of each of the properties. `hotpink` sets the text colour.
-4. `;` - Every property-value pair will end in a semicolon.
+1. **Selector (`p`)**
+
+   The selector targets the HTML elements you want to style. In this case, every `<p>` (paragraph) element will receive the styles inside the `{ }`.
+   (Selectors can be elements, IDs, classes, or more advanced patterns.)
+
+2. **Properties (`color` and `border`)**
+
+   Properties define *what* aspect of the element you want to style.
+   - `color` controls the text color.
+   - `border` sets the width, style, and color of the element's border.
+   (CSS includes hundreds of properties that affect appearance, layout, and even behavior.)
+
+3. **Values (`hotpink` and `4px solid teal`)**
+
+   Values specify *how* the property should be applied.
+   - `hotpink` sets the text color to hot pink.
+   - `4px solid teal` creates a 4-pixel wide solid border with a teal color.
+
+4. **Semicolon (`;`)**
+
+   Each property-value pair must end with a semicolon (`;`). This separates different declarations and helps avoid syntax errors.
+
 
 ## Class Selectors
 
-- First attach a class to an element via `class` attribute.
+- Attach a class to an element using the `class` attribute.
 - An element can have multiple classes.
-- Select classes in CSS by prefixing the class name with a `.`
+- Select classes in CSS by prefixing the class name with a `.`.
 
 ```html
 <style>
@@ -70,15 +87,13 @@ Syntax are the rules of writing proper CSS
 ```
 
 <HtmlOutput>
-  <div class="warning" style={{ color: "orange", fontWeight: "bold" }}>
-    This paragraph displays a warning!
-  </div>
+  <p className="warning" style={{ color: "orange", fontWeight: "bold" }}>This paragraph displays a warning!</p>
 </HtmlOutput>
 
 ## ID Selector
 
-- Attach an ID to an element via `id` attribute.
-- An element should have one unique id
+- Attach an ID to an element using the `id` attribute.
+- An ID should be unique to one element per page.
 
 ```html
 <style>
@@ -95,17 +110,12 @@ Syntax are the rules of writing proper CSS
 ```
 
 <HtmlOutput>
-  <div
-    class="warning"
-    style={{ color: "red", fontWeight: "bold", textTransform: "uppercase" }}
-  >
-    This text is uppercase, bold, and red, and and it's uniquely marked because you should only use an ID once per page.
-  </div>
+  <p id="danger" style={{ color: "red", fontWeight: "bold", textTransform: "uppercase" }}> This text is uppercase, bold, and red, and it's uniquely marked because you should only use an ID once per page.  </p>
 </HtmlOutput>
 
 ## Descendant Selectors
 
-This is a combination of one or more classes, IDs, or elements, separated by spaces, to indicate a family relationship.
+A descendant selector combines one or more classes, IDs, or elements, separated by spaces, to indicate a family relationship.
 
 ```html
 <style>
@@ -121,19 +131,15 @@ This is a combination of one or more classes, IDs, or elements, separated by spa
 ```
 
 <HtmlOutput>
-  <article class="warning">
-    <p style={{ color: "violet" }}>
-      All paragraphs in this article will have a color of violet.
-    </p>
-    <p style={{ color: "violet" }}>
-      This paragraph too! No more classes needed!
-    </p>
+  <article className="warning">
+    <p style={{ color: "violet" }}> All paragraphs in this article will have a color of violet.</p>
+    <p style={{ color: "violet" }}> This paragraph too! No more classes needed!</p>
   </article>
 </HtmlOutput>
 
 ## Grouping Selectors
 
-You can pick multiple selectors and apply the same styling to them at once.
+You can select multiple elements and apply the same styling to all of them at once.
 
 ```html
 <style>
@@ -172,33 +178,36 @@ You can pick multiple selectors and apply the same styling to them at once.
   </article>
 </HtmlOutput>
 
-We have other ways of selecting elements such as combinator, pseudo-class, pseudo-elements and attribute selectors. We will touch upon them as we work on projects.
+We have other ways of selecting elements such as combinators, pseudo-classes, pseudo-elements, and attribute selectors. We will touch upon them as we work on projects.
 
 ## Inline Styling
 
-We can also apply styles directly to an HTML element using the `style` attribute:
+You can also apply styles directly to an HTML element using the `style` attribute:
 
 ```html
 <p style="color: blue; font-size: 20px;">Styled using inline CSS</p>
+```
 
+<HtmlOutput>
+  <p style={{color: "blue", fontSize: "20px"}}>Styled using inline CSS</p>
+</HtmlOutput>
 
 ## Importing External Stylesheets
 
-We've seen how to use the `style` attributes and `<style>` tags for applying styles but the most common one we will be using is the external stylesheet. To use external stylesheets, create a new file and give it a `.css` extension. Example: `style.css`
+We've seen how to use the `style` attribute and `<style>` tags for applying styles. However, the most common method we will use is the external stylesheet.  
+To use an external stylesheet, create a new file and give it a `.css` extension, for example, `style.css`.
 
-To direct the browser to use the stylesheet, you need to specify its location within the `<head>` element using the `<link>` tag.
+Then, link the stylesheet within the `<head>` element using the `<link>` tag:
 
 ```html
-<!-- Some code -->
 <head>
   <link rel="stylesheet" href="./style.css" />
 </head>
-<!-- Some code -->
 ```
 
 ## Comments
 
-Just like in HTML, we can have comments within our CSS styles which do not get parsed by the browser.
+Just like in HTML, we can add comments in CSS that the browser will ignore.
 
 ```css
 /* This comment gets ignored by the browser */
@@ -206,7 +215,7 @@ p {
   color: chocolate;
   background-color: hotpink;
 }
-/* Comments are useful for code documentation */
+/* Comments are useful for documenting your code */
 ```
 
 ## CSS Recap

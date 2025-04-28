@@ -1,0 +1,281 @@
+---
+title: "CSS Project 1"
+---
+
+# Yam & Egg Sauce Recipe Page
+
+## Overview
+
+This project teaches students how to build a clean, styled recipe page using **HTML5 semantic elements** (`article`, `section`, `header`, etc.) and **modern CSS** features like `border-radius`, `box-sizing`, `ul::marker`, `border-collapse`, and more.
+
+They will learn both structure and presentational styling.
+
+---
+
+## HTML Structure
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadata and Links to Stylesheets and Fonts -->
+  </head>
+  <body>
+    <article>
+      <!-- Page Header: Image, Title, Introduction -->
+      <header>...</header>
+
+      <!-- Preparation Time Section -->
+      <section class="preparation">...</section>
+
+      <!-- Ingredients Section -->
+      <section class="ingredients">...</section>
+
+      <!-- Divider Line -->
+      <hr />
+
+      <!-- Cooking Instructions Section -->
+      <section class="instruction">...</section>
+
+      <!-- Divider Line -->
+      <hr />
+
+      <!-- Nutrition Table Section -->
+      <section>...</section>
+    </article>
+  </body>
+</html>
+```
+
+---
+
+### Detailed Section Explanations
+
+| Section                | Description |
+|-------------------------|-------------|
+| `<article>`             | Wraps all the content of the recipe. It is the main container. |
+| `<header>`              | Contains the food image, main heading `<h1>`, and a description `<p>`. |
+| `.preparation` `<section>` | Shows preparation times inside a styled box. |
+| `.ingredients` `<section>` | Lists the ingredients separately for Yam and Egg Sauce. |
+| `<hr />`                | Horizontal line to visually separate sections. |
+| `.instruction` `<section>` | Step-by-step cooking instructions using an ordered list (`<ol>`). |
+| Last `<section>`        | Displays a **Nutrition** table (`<table>`). |
+
+---
+
+## CSS Breakdown
+
+### 1. General Styles
+
+```css
+body {
+  font-family: "Outfit", sans-serif;
+  color: #5f564d;
+  background: rgb(243, 230, 216);
+  padding: 48px 0;
+}
+```
+
+- **Font family:** Uses a clean sans-serif font ("Outfit") from Google Fonts.
+- **Background:** Light pastel background to create contrast with the white article card.
+- **Padding:** Space around the main content vertically (top & bottom).
+
+---
+
+```css
+article {
+  background-color: #fff;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+```
+
+- **Background color:** White (`#fff`) for a clean card look.
+- **Max-width:** Ensures article doesn’t stretch too wide.
+- **Margin auto:** Centers the article horizontally.
+- **Padding:** Adds inner spacing.
+- **border-radius:** Rounded corners (`16px`) for a soft, modern look.
+- **box-sizing: border-box:** Makes sure padding doesn't add extra size to the element (very important for layout).
+
+📢 **New Property Explanation: `box-sizing: border-box;`**  
+> Makes the width and height include padding and borders, making layouts much easier to control.
+
+---
+
+### 2. Header Image
+
+```css
+header img {
+  width: 100%;
+  border-radius: 12px;
+}
+```
+
+- **Width 100%:** Image will stretch to fit the container.
+- **Border-radius:** Soft rounded edges for the image.
+
+---
+
+### 3. Headings
+
+```css
+h1, h2, h3 {
+  font-family: "Young Serif", serif;
+  color: #000;
+}
+```
+- Changes font family to a decorative serif font ("Young Serif") for headings only.
+- Sets the color to black (`#000`) for emphasis.
+
+```css
+h1 { font-size: 40px; }
+h2 { color: rgb(123, 40, 79); font-size: 28px; }
+```
+- **H1 bigger** for main title.
+- **H2 special color** to differentiate sections.
+
+---
+
+### 4. Paragraphs
+
+```css
+p {
+  line-height: 150%;
+}
+```
+- Improves readability by increasing space between lines.
+
+📢 **New Property Explanation: `line-height: 150%`**  
+> Sets vertical spacing between lines of text. Improves readability!
+
+---
+
+### 5. Preparation Section
+
+```css
+.preparation {
+  background-color: rgb(255, 245, 250);
+  padding: 24px;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+```
+- Different background color to visually separate the preparation box.
+- Padding inside.
+- Rounded corners (`border-radius`).
+- Margin creates space around it.
+
+Inside `.preparation`:
+
+```css
+.preparation span {
+  color: #000;
+  font-weight: 600;
+}
+```
+- Makes the `<span>` texts (Total, Preparation, Cooking) bold and black for contrast.
+
+---
+
+### 6. Lists (UL and OL)
+
+```css
+ul li,
+ol li {
+  margin-bottom: 8px;
+  padding-left: 12px;
+}
+```
+- Adds vertical spacing between list items.
+- **Padding-left** indents the list items slightly.
+
+```css
+ul li::marker,
+ol li::marker {
+  color: rgb(123, 40, 79);
+}
+```
+- Changes the color of bullet points (`ul`) and numbers (`ol`).
+
+📢 **New Property Explanation: `::marker`**  
+> Lets you style the bullet or number of a list item!
+
+---
+
+### 7. Horizontal Rule (`<hr>`)
+
+```css
+hr {
+  color: rgb(255, 255, 255);
+  margin: 32px 0;
+  border-top: 1px;
+}
+```
+- Invisible (white) line just used for spacing.
+
+---
+
+### 8. Nutrition Table
+
+```css
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+```
+- Table stretches fully across container.
+- **border-collapse: collapse** removes double borders between cells.
+
+📢 **New Property Explanation: `border-collapse: collapse;`**  
+> Makes table borders collapse into a single border instead of separate borders around each cell.
+
+---
+
+```css
+tr {
+  line-height: 48px;
+}
+
+tr:not(:last-child) td {
+  border-bottom: 1px solid hsl(30, 18%, 87%);
+}
+
+tr td {
+  padding-left: 24px;
+}
+```
+- Rows are taller for easy readability.
+- Adds a subtle line below each table row **except the last one**.
+
+```css
+.figure {
+  font-weight: 700;
+  color: hsl(332, 51%, 32%);
+}
+```
+- Values (like calories, protein) are bold and colored differently.
+
+---
+
+## Summary
+
+✅ Students will practice:
+- Semantic HTML structure.
+- Linking external CSS and Google Fonts.
+- Clean layout with max-width and centered elements.
+- Visual separation using background color, padding, margins, and rounded corners.
+- List item styling with `::marker`.
+- Table styling with `border-collapse`.
+
+✅ New CSS concepts introduced:
+- `box-sizing: border-box`
+- `::marker`
+- `border-collapse`
+
+## Live Demo
+import Recipe from "../../../components/Recipe"
+
+<Recipe />
