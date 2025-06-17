@@ -36,6 +36,10 @@ export default defineConfig({
           label: "CSS Fundamentals",
           autogenerate: { directory: "css" },
         },
+        {
+          label: "JavaScript",
+          autogenerate: { directory: "javascript" },
+        },
         // {
         //   label: "Guides",
         //   items: [

@@ -7,10 +7,10 @@ export default function Recipe() {
       scrolling="no"
       title="FM - recipe"
       src="https://codepen.io/kolawole-abdullah-solahudeen/embed/MYYvLeG?default-tab=result"
-      frameborder="no"
+      frameBorder="no"
       loading="lazy"
-      allowtransparency="true"
-      allowfullscreen="true"
+      allowTransparency="true"
+      allowFullScreen="true"
     >
       See the Pen{" "}
       <a href="https://codepen.io/kolawole-abdullah-solahudeen/pen/MYYvLeG">
