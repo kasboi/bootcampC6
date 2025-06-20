@@ -7,50 +7,56 @@ title: Comparisons and Logic - Exercises
 ### Question 1
 
 What is the difference between `==` and `===` in JavaScript?
-A) No difference, they work the same way
-B) `==` checks type and value, `===` only checks value
-C) `===` checks type and value, `==` only checks value
-D) `===` checks type and value, `==` performs type coercion
+
+- A) No difference, they work the same way
+- B) `==` checks type and value, `===` only checks value
+- C) `===` checks type and value, `==` only checks value
+- D) `===` checks type and value, `==` performs type coercion
 
 ### Question 2
 
 What will `"5" == 5` return?
-A) `true`
-B) `false`
-C) `Error`
-D) `undefined`
+
+- A) `true`
+- B) `false`
+- C) `Error`
+- D) `undefined`
 
 ### Question 3
 
 What will `"5" === 5` return?
-A) `true`
-B) `false`
-C) `Error`
-D) `undefined`
+
+- A) `true`
+- B) `false`
+- C) `Error`
+- D) `undefined`
 
 ### Question 4
 
 What does the logical AND (`&&`) operator return when both operands are truthy?
-A) `true`
-B) `false`
-C) The first operand
-D) The second operand
+
+- A) `true`
+- B) `false`
+- C) The first operand
+- D) The second operand
 
 ### Question 5
 
 What will `!!"hello"` return?
-A) `true`
-B) `false`
-C) `"hello"`
-D) `Error`
+
+- A) `true`
+- B) `false`
+- C) `"hello"`
+- D) `Error`
 
 ### Question 6
 
 Which of the following values is falsy in JavaScript?
-A) `"0"`
-B) `[]`
-C) `{}`
-D) `0`
+
+- A) `"0"`
+- B) `[]`
+- C) `{}`
+- D) `0`
 
 ruthy).
 
@@ -103,7 +109,7 @@ Practice complex logical conditions to determine if a student passes.
 
 ```javascript
 // TODO: Create a variable called attendance with the value 85 (as percentage)
-// TODO: Create a variable called assignments with the value 65 (as percentage)  
+// TODO: Create a variable called assignments with the value 65 (as percentage)
 // TODO: Create a variable called finalExam with the value 82 (as percentage)
 // TODO: Student passes if: Attendance >= 80% AND (Assignments >= 70% OR Final exam >= 80%)
 // TODO: Display the result
@@ -115,7 +121,7 @@ Practice complex logical conditions to determine if a student passes.
 
 // Expected output:
 // "Attendance: 85% - Pass: true"
-// "Assignments: 65% - Pass: false" 
+// "Assignments: 65% - Pass: false"
 // "Final Exam: 82% - Pass: true"
 // "Student passes overall: true"
 ```
@@ -247,7 +253,7 @@ Fix this comparison issue:
 // TODO: Fix the assignment operator error below
 
 // BUG: Using assignment (=) instead of comparison (===)
-if (userScore = passingScore) {
+if ((userScore = passingScore)) {
   console.log("Student passed the test");
 } else {
   console.log("Student failed the test");
@@ -264,12 +270,12 @@ Fix the operator precedence issue:
 
 ```javascript
 // TODO: Create a variable called isEmployee with the value true
-// TODO: Create a variable called hasKeyCard with the value false  
+// TODO: Create a variable called hasKeyCard with the value false
 // TODO: Create a variable called isManager with the value true
 // TODO: Fix the precedence grouping below
 
 // BUG: Wrong precedence - this allows managers who aren't employees to access
-let hasAccess = isEmployee && hasKeyCard || isManager;
+let hasAccess = (isEmployee && hasKeyCard) || isManager;
 console.log("Access granted:", hasAccess); // Works by luck, but logic is wrong
 
 // HINT: Employee must have keycard OR be a manager, but must be employee first
@@ -309,7 +315,7 @@ Create a program that determines shopping discounts.
 // TODO: Create a variable called purchaseAmount with the value 120
 // TODO: Apply discount rules and find the best discount:
 //       - Senior (65+): 15% discount
-//       - Members: 10% discount  
+//       - Members: 10% discount
 //       - Large purchase ($100+): 5% discount
 // TODO: Calculate and display the discount amount and final price
 
@@ -334,7 +340,7 @@ Create a program that evaluates password strength.
 // TODO: Create a variable called userPassword with the value "MyPass123!"
 // TODO: Check multiple criteria and store results in variables:
 //       - At least 8 characters long (store in hasLength)
-//       - Contains uppercase letters (store in hasUppercase) 
+//       - Contains uppercase letters (store in hasUppercase)
 //       - Contains lowercase letters (store in hasLowercase)
 //       - Contains numbers (store in hasNumber)
 //       - Contains special characters (store in hasSpecial)
@@ -350,7 +356,7 @@ Create a program that evaluates password strength.
 // "Password: MyPass123!"
 // "Length (8+): true"
 // "Has uppercase: true"
-// "Has lowercase: true" 
+// "Has lowercase: true"
 // "Has numbers: true"
 // "Has special chars: true"
 // "Password strength: Strong"
