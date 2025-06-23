@@ -10,8 +10,8 @@ What is the correct way to create a string in JavaScript?
 
 - A) `let str = 'Hello World'`
 - B) `let str = "Hello World"`
-- C) `let str = \`Hello World\``
-  D) All of the above
+- C) `let str = `\`Hello World\`;
+- D) All of the above
 
 ### Question 2
 

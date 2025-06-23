@@ -132,18 +132,6 @@ const birthYear = 1995;
 const currentYear = new Date().getFullYear();
 ```
 
-### Challenge 3: Grade Point Average
-
-Calculate GPA from grade points:
-
-```javascript
-// TODO: Calculate GPA
-// Given: subject grades as numbers (0-100)
-// Convert to: 4.0 scale (90-100=4.0, 80-89=3.0, 70-79=2.0, 60-69=1.0, <60=0.0)
-
-const grades = [95, 87, 92, 78, 85];
-```
-
 ---
 
 ## 🔍 Debugging Exercises
