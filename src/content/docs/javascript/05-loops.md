@@ -3,16 +3,16 @@ title: Loops
 ---
 
 > **Topic**: Control Flow (Extended)  
-> **Concepts Covered**: `for`, `while`, `for...of`, `break`, `continue`
+> **Concepts Covered**: `for`, `while`, `break`, `continue`
 
 ## Why Use Loops?
 
 Loops allow us to repeat actions efficiently instead of writing repetitive code:
 
 - Log numbers from 1 to 200
-- Process every item in a list
 - Keep asking for user input until valid
 - Generate multiplication tables
+- Process repetitive calculations
 
 ## While Loops
 
@@ -122,24 +122,6 @@ for (let i = input; i > 0; i--) {
 }
 ```
 
-## For...Of Loop
-
-The `for...of` loop is perfect for iterating through arrays:
-
-```javascript
-const arr = [2, 4, 6, 8, 10];
-
-// Traditional for loop
-for (let i = 0; i < arr.length; i++) {
-  console.log(`2 x ${arr[i]} = ${2 * arr[i]}`);
-}
-
-// for...of loop (cleaner)
-for (const element of arr) {
-  console.log(`3 x ${element} = ${3 * element}`);
-}
-```
-
 ## Loop Control Statements
 
 ### Break
@@ -217,12 +199,6 @@ for (let i = 1; i <= 100; i++) {
 - Looping until a condition is met
 - Processing user input until valid
 
-### Use `for...of` when:
-
-- Iterating through arrays or other iterables
-- You need the values but not the indices
-- Want cleaner, more readable code
-
 ## Common Pitfalls
 
 ### Infinite Loops
@@ -250,14 +226,14 @@ while (counter > 0) {
 Be careful with your loop conditions:
 
 ```javascript
-// Common mistake - might miss the last element
-for (let i = 0; i < array.length - 1; i++) {
-  // This skips the last element!
+// Common mistake - stopping too early
+for (let i = 1; i < 10; i++) {
+  console.log(i); // This only goes to 9, not 10!
 }
 
-// Correct version
-for (let i = 0; i < array.length; i++) {
-  // This processes all elements
+// Correct version - if you want 1 through 10
+for (let i = 1; i <= 10; i++) {
+  console.log(i); // This goes from 1 to 10
 }
 ```
 
@@ -265,17 +241,17 @@ for (let i = 0; i < array.length; i++) {
 
 1. **Use meaningful variable names**: `i`, `j`, `k` for simple counters, descriptive names for complex loops
 2. **Avoid modifying loop variables inside the loop body** (for `for` loops)
-3. **Consider using `for...of` for arrays** instead of traditional `for` loops
-4. **Always ensure the loop will terminate** to avoid infinite loops
-5. **Use `break` and `continue` sparingly** and only when they make code clearer
+3. **Always ensure the loop will terminate** to avoid infinite loops
+4. **Use `break` and `continue` sparingly** and only when they make code clearer
+5. **Choose the appropriate loop type** for your specific use case
 
 ## Key Takeaways
 
 - `while` loops are condition-based, `for` loops are count-based
-- `for...of` is the modern way to iterate through arrays
-- Always ensure your loops will terminate
+- Always ensure your loops will terminate to avoid infinite loops
 - Use `break` to exit early, `continue` to skip iterations
 - Choose the right loop type for your specific use case
+- Be careful with loop conditions to avoid off-by-one errors
 
 ## Practice Exercises
 
