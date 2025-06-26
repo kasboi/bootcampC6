@@ -45,14 +45,6 @@ D) `skip`
 
 ### Question 5
 
-What's the difference between `for...in` and `for...of` loops?
-A) No difference
-B) `for...in` iterates over values, `for...of` iterates over indices
-C) `for...in` iterates over indices/keys, `for...of` iterates over values
-D) `for...of` is only for objects
-
-### Question 6
-
 What will happen with this `while` loop?
 
 ```javascript
@@ -67,6 +59,23 @@ A) Prints 0 1 2 3 4
 B) Prints nothing
 C) Infinite loop
 D) Syntax error
+
+### Question 6
+
+What is the output of this nested loop?
+
+```javascript
+for (let i = 1; i <= 2; i++) {
+  for (let j = 1; j <= 2; j++) {
+    console.log(i + "-" + j);
+  }
+}
+```
+
+A) 1-1, 1-2, 2-1, 2-2
+B) 1-1, 2-2
+C) 1-2, 2-1
+D) Error
 
 ## Practical Coding Exercises
 
@@ -107,389 +116,288 @@ console.log(calculateSum(10)); // Should return: 55
 
 ````
 
-### Exercise 3: Array Processing
+### Exercise 3: Number Pattern
 
-Write a function that finds all even numbers in an array.
+Create code that prints a pattern of numbers:
 
 ```javascript
-function findEvenNumbers(numbers) {
-  // Return a new array containing only even numbers
-}
+// TODO: Create a variable for the number of rows (e.g., 5)
+// TODO: Use nested loops to create this pattern:
+// 1
+// 1 2
+// 1 2 3
+// 1 2 3 4
+// 1 2 3 4 5
 
-// Test your function
-console.log(findEvenNumbers([1, 2, 3, 4, 5, 6])); // [2, 4, 6]
-console.log(findEvenNumbers([1, 3, 5])); // []
+// HINT: Use outer loop for rows, inner loop for numbers in each row
+// HINT: Inner loop should go from 1 to current row number
+// HINT: Use process.stdout.write() to print without newlines, console.log() for new lines
 ````
 
-### Exercise 4: String Character Counter
+### Exercise 4: Character Frequency Counter
 
-Create a function that counts occurrences of each character in a string.
+Create code that counts how often each character appears in a string:
 
 ```javascript
-function countCharacters(str) {
-  // Return an object with character counts
-}
+// TODO: Create a variable called inputString with the value "hello"
+// TODO: Use loops to count how many times each character appears
+// TODO: Display the count for each unique character
 
-// Test your function
-console.log(countCharacters("hello")); // {h: 1, e: 1, l: 2, o: 1}
-console.log(countCharacters("javascript")); // {j: 1, a: 2, v: 1, s: 1, c: 1, r: 1, i: 1, p: 1, t: 1}
+// HINT: You can use a simple approach with nested loops
+// HINT: For each character, count how many times it appears in the string
+// HINT: Keep track of which characters you've already counted to avoid duplicates
+
+// Expected output:
+// "h: 1"
+// "e: 1"
+// "l: 2"
+// "o: 1"
 ```
 
 ### Exercise 5: Multiplication Table
 
-Write a function that creates a multiplication table.
+Create code that displays a multiplication table:
 
 ```javascript
-function multiplicationTable(n) {
-  // Print multiplication table for number n (n x 1 through n x 10)
-}
+// TODO: Create a variable called number with the value 5
+// TODO: Use a for loop to create a multiplication table
+// TODO: Display the table from 1 x 5 through 10 x 5
 
-// Test your function
-multiplicationTable(5);
-// Should print:
-// 5 x 1 = 5
-// 5 x 2 = 10
+// HINT: Loop from 1 to 10
+// HINT: Calculate the product for each iteration
+// HINT: Format the output nicely (e.g., "5 x 1 = 5")
+
+// Expected output:
+// "5 x 1 = 5"
+// "5 x 2 = 10"
 // ...
-// 5 x 10 = 50
+// "5 x 10 = 50"
 ```
 
 ### Exercise 6: While Loop Practice
 
-Create a function that finds the first number whose square is greater than a given value.
+Create code that finds the first number whose square is greater than a given value:
 
 ```javascript
-function findSquareGreaterThan(target) {
-  // Use a while loop to find the first number whose square > target
-}
+// TODO: Create a variable called target with the value 20
+// TODO: Create a variable called number starting at 1
+// TODO: Use a while loop to find the first number whose square > target
+// TODO: Display the result
 
-// Test your function
-console.log(findSquareGreaterThan(20)); // Should return 5 (5^2 = 25 > 20)
-console.log(findSquareGreaterThan(100)); // Should return 11 (11^2 = 121 > 100)
-```
+// HINT: Use while loop with condition (number * number <= target)
+// HINT: Increment number in each iteration
+// HINT: When loop ends, number will be the answer
 
-## JavaScript Test Functions
-
-```javascript
-// Test function for loop exercises
-function testLoopExercises() {
-  console.log("=== Testing Loop Exercises ===");
-
-  // Test calculateSum
-  const test1 = calculateSum(5) === 15;
-  const test2 = calculateSum(10) === 55;
-  console.log("calculateSum test:", test1 && test2 ? "PASS" : "FAIL");
-
-  // Test findEvenNumbers
-  const result1 = findEvenNumbers([1, 2, 3, 4, 5, 6]);
-  const test3 = JSON.stringify(result1) === JSON.stringify([2, 4, 6]);
-  const result2 = findEvenNumbers([1, 3, 5]);
-  const test4 = result2.length === 0;
-  console.log("findEvenNumbers test:", test3 && test4 ? "PASS" : "FAIL");
-
-  // Test countCharacters
-  const result3 = countCharacters("hello");
-  const test5 = result3.h === 1 && result3.l === 2;
-  console.log("countCharacters test:", test5 ? "PASS" : "FAIL");
-
-  // Test findSquareGreaterThan
-  const test6 = findSquareGreaterThan(20) === 5;
-  const test7 = findSquareGreaterThan(100) === 11;
-  console.log("findSquareGreaterThan test:", test6 && test7 ? "PASS" : "FAIL");
-}
-
-// Run tests
-testLoopExercises();
+// Expected output for target = 20:
+// "The first number whose square is greater than 20 is: 5"
+// "Because 5 * 5 = 25, which is greater than 20"
 ```
 
 ## Challenge Problems
 
-### Challenge 1: Pattern Generator
+## Challenge Problems
 
-Create a function that generates various patterns using loops.
+### Challenge 1: Number Pattern Generator
+
+Create code that generates various patterns using loops:
 
 ```javascript
-function generatePattern(type, size) {
-  // type can be: "triangle", "square", "diamond"
-  // size determines the dimensions
-}
+// TODO: Create a variable called size with the value 4
+// TODO: Generate a triangle pattern using nested loops
+// TODO: Display the pattern using asterisks (*)
 
-// Examples:
-generatePattern("triangle", 4);
+// HINT: Use outer loop for rows, inner loop for asterisks in each row
+// HINT: Row 1 has 1 asterisk, row 2 has 2 asterisks, etc.
+
+// Expected output:
 // *
 // **
 // ***
 // ****
-
-generatePattern("square", 3);
-// ***
-// ***
-// ***
-
-generatePattern("diamond", 3);
-//  *
-// ***
-//  *
 ```
 
-### Challenge 2: Prime Number Finder
+### Challenge 2: Prime Number Checker
 
-Write a function that finds all prime numbers up to a given number.
+Create code that checks if numbers are prime:
 
 ```javascript
-function findPrimes(limit) {
-  // Return an array of all prime numbers from 2 to limit
-}
+// TODO: Create a variable called testNumber with the value 17
+// TODO: Use loops to check if the number is prime
+// TODO: A prime number is only divisible by 1 and itself
 
-console.log(findPrimes(20)); // [2, 3, 5, 7, 11, 13, 17, 19]
+// HINT: Use a for loop to check divisors from 2 to testNumber-1
+// HINT: If any number divides evenly (remainder is 0), it's not prime
+// HINT: Use the modulus operator (%) to check for remainders
+
+// Expected output:
+// "17 is a prime number"
 ```
 
-### Challenge 3: Fibonacci Sequence
+### Challenge 3: Counting Challenge
 
-Create a function that generates the Fibonacci sequence up to n terms.
-
-```javascript
-function fibonacciSequence(n) {
-  // Return array with first n Fibonacci numbers
-  // Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
-}
-
-console.log(fibonacciSequence(8)); // [0, 1, 1, 2, 3, 5, 8, 13]
-```
-
-### Challenge 4: Matrix Operations
-
-Write functions to work with 2D arrays (matrices).
+Create code that counts specific patterns in numbers:
 
 ```javascript
-function createMatrix(rows, cols, fillValue = 0) {
-  // Create a matrix filled with fillValue
-}
+// TODO: Create a variable called limit with the value 100
+// TODO: Count how many numbers from 1 to limit contain the digit 5
+// TODO: Use loops and string methods to check each number
 
-function printMatrix(matrix) {
-  // Print matrix in a readable format
-}
+// HINT: Convert numbers to strings to check individual digits
+// HINT: Use a loop to go through each number from 1 to limit
+// HINT: For each number, check if it contains the digit "5"
 
-function findMaxInMatrix(matrix) {
-  // Find the maximum value in the matrix
-}
-
-// Test your functions
-const matrix = createMatrix(3, 3, 5);
-printMatrix(matrix);
-console.log(
-  "Max value:",
-  findMaxInMatrix([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ]),
-);
+// Expected output:
+// "Numbers containing digit 5: 19"
+// "Examples: 5, 15, 25, 35, 45, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 65, 75, 85, 95"
 ```
 
 ## Debugging Exercises
 
-### Debug Exercise 1
+## Debugging Exercises
 
-Fix the infinite loop:
+### Debug Exercise 1: Fix the Infinite Loop
+
+Find and fix the infinite loop:
 
 ```javascript
-function countDown(start) {
-  while (start > 0) {
-    console.log(start);
-    // Missing decrement
-  }
-  console.log("Done!");
+// TODO: This code has a bug - it will run forever!
+let countdown = 5;
+while (countdown > 0) {
+  console.log(countdown);
+  // BUG: Missing countdown decrement
 }
+console.log("Done!");
+
+// HINT: What's missing to make the countdown variable change?
+// HINT: Add countdown-- or countdown = countdown - 1
+// Expected after fix: 5, 4, 3, 2, 1, Done!
 ```
 
-**Fix:**
+### Debug Exercise 2: Fix the Off-by-One Error
+
+Find and fix the off-by-one error:
 
 ```javascript
-function countDown(start) {
-  while (start > 0) {
-    console.log(start);
-    start--; // Add decrement
+// TODO: This loop should print numbers 1 through 10, but it has a bug
+for (let i = 1; i <= 10; i++) {
+  if (i === 10) {
+    break; // BUG: This exits before printing 10
   }
-  console.log("Done!");
+  console.log(i);
 }
+
+// HINT: What happens when i equals 10?
+// HINT: Remove the break statement or change the condition
+// Expected after fix: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 ```
 
-### Debug Exercise 2
+### Debug Exercise 3: Fix the Logic Error
 
-Fix the off-by-one error:
-
-```javascript
-function printArrayElements(arr) {
-  for (let i = 0; i <= arr.length; i++) {
-    // Should be < not <=
-    console.log(arr[i]);
-  }
-}
-```
-
-**Fix:**
+Find and fix the logic error:
 
 ```javascript
-function printArrayElements(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+// TODO: This should count even numbers from 1 to 10, but it has a bug
+let evenCount = 0;
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 === 1) {
+    // BUG: This checks for odd numbers, not even
+    evenCount++;
   }
 }
-```
+console.log("Even numbers count:", evenCount);
 
-### Debug Exercise 3
-
-Fix the scope issue:
-
-```javascript
-function findNumbers() {
-  for (var i = 0; i < 3; i++) {
-    setTimeout(() => {
-      console.log(i); // Will print 3, 3, 3 instead of 0, 1, 2
-    }, 100);
-  }
-}
-```
-
-**Fix:**
-
-```javascript
-function findNumbers() {
-  for (let i = 0; i < 3; i++) {
-    // Use let instead of var
-    setTimeout(() => {
-      console.log(i);
-    }, 100);
-  }
-}
+// HINT: What does i % 2 === 1 actually check for?
+// HINT: Change the condition to check for even numbers (i % 2 === 0)
+// Expected after fix: "Even numbers count: 5"
 ```
 
 ## Real-World Applications
 
-### Application 1: Data Processing
+### Application 1: Receipt Calculator
 
-Process a list of orders and calculate statistics.
+Create code that calculates the total for multiple items:
 
 ```javascript
-function processOrders(orders) {
-  // orders = [{ id, amount, customer, date }, ...]
-  // Calculate: total revenue, average order, customer count
+// TODO: You have item prices: 12.99, 8.50, 25.00, 4.75, 15.25
+// TODO: Use loops to calculate the total cost
+// TODO: Apply 8.5% sales tax to the subtotal
+// TODO: Display itemized breakdown and final total
 
-  let totalRevenue = 0;
-  let customerSet = new Set();
+// HINT: You can use a loop with individual price variables
+// HINT: Calculate tax as subtotal * 0.085
+// HINT: Format prices to 2 decimal places using .toFixed(2)
 
-  for (let order of orders) {
-    // Process each order
-  }
-
-  return {
-    totalRevenue,
-    averageOrder: totalRevenue / orders.length,
-    uniqueCustomers: customerSet.size,
-    orderCount: orders.length,
-  };
-}
+// Expected output:
+// "Item 1: $12.99"
+// "Item 2: $8.50"
+// ...
+// "Subtotal: $66.49"
+// "Tax (8.5%): $5.65"
+// "Total: $72.14"
 ```
 
-### Application 2: Search and Filter
+### Application 2: Grade Point Average Calculator
 
-Implement search functionality for a product catalog.
+Create code that calculates GPA from multiple course grades:
 
 ```javascript
-function searchProducts(products, searchTerm, filters = {}) {
-  // products = [{ name, category, price, inStock }, ...]
-  // filters = { category, maxPrice, inStockOnly }
+// TODO: You have grades: 85, 92, 78, 88, 95, 82
+// TODO: Use loops to calculate the average grade
+// TODO: Convert the average to a GPA scale (A=4.0, B=3.0, C=2.0, D=1.0, F=0.0)
+// TODO: Display all grades and final GPA
 
-  const results = [];
+// HINT: A: 90-100, B: 80-89, C: 70-79, D: 60-69, F: below 60
+// HINT: Sum all grades, then divide by count
+// HINT: Use conditional logic to convert average to letter grade
 
-  for (let product of products) {
-    // Check if product matches search term and filters
-  }
-
-  return results;
-}
+// Expected output:
+// "Grade 1: 85 (B)"
+// "Grade 2: 92 (A)"
+// ...
+// "Average: 86.67"
+// "Letter Grade: B"
+// "GPA: 3.0"
 ```
 
-### Application 3: Game Score Calculator
+### Application 3: Simple Interest Calculator
 
-Calculate scores for a simple game.
-
-```javascript
-function calculateGameScores(gameData) {
-  // gameData = [{ player, rounds: [score1, score2, ...] }, ...]
-  // Calculate total and average for each player
-
-  const playerStats = [];
-
-  for (let playerData of gameData) {
-    let total = 0;
-    // Calculate total score for player
-
-    playerStats.push({
-      player: playerData.player,
-      total: total,
-      average: total / playerData.rounds.length,
-      rounds: playerData.rounds.length,
-    });
-  }
-
-  return playerStats.sort((a, b) => b.total - a.total); // Sort by total desc
-}
-```
-
-## Performance Considerations
-
-### Exercise: Loop Optimization
-
-Compare different loop approaches for performance:
+Create code that calculates compound interest over multiple years:
 
 ```javascript
-// Test different ways to iterate over large arrays
-function testLoopPerformance(size) {
-  const largeArray = Array.from({ length: size }, (_, i) => i);
+// TODO: Create variables for principal ($1000), rate (5%), and years (10)
+// TODO: Use a loop to calculate compound interest year by year
+// TODO: Display the balance for each year
 
-  console.time("for loop");
-  for (let i = 0; i < largeArray.length; i++) {
-    // Process element
-  }
-  console.timeEnd("for loop");
+// HINT: Each year: newBalance = oldBalance * (1 + rate/100)
+// HINT: Use a for loop from year 1 to final year
+// HINT: Track and display the balance for each year
 
-  console.time("for...of loop");
-  for (let element of largeArray) {
-    // Process element
-  }
-  console.timeEnd("for...of loop");
-
-  console.time("forEach");
-  largeArray.forEach((element) => {
-    // Process element
-  });
-  console.timeEnd("forEach");
-}
-
-testLoopPerformance(1000000);
+// Expected output:
+// "Year 1: $1,050.00"
+// "Year 2: $1,102.50"
+// ...
+// "Year 10: $1,628.89"
+// "Total interest earned: $628.89"
 ```
 
 ## Self-Assessment Checklist
 
 - [ ] I can write and understand `for` loops with proper syntax
 - [ ] I know when to use `while` vs `for` loops
-- [ ] I understand the difference between `for...in` and `for...of`
 - [ ] I can use `break` and `continue` statements appropriately
 - [ ] I can avoid infinite loops by ensuring proper loop conditions
-- [ ] I can iterate over arrays and objects effectively
-- [ ] I can nest loops when needed for complex operations
+- [ ] I can write nested loops for pattern generation
 - [ ] I can debug common loop-related errors
-- [ ] I understand loop performance considerations
 - [ ] I can apply loops to solve real-world programming problems
+- [ ] I understand loop control flow and iteration concepts
 
 ## Additional Practice Resources
 
-1. Practice with different loop types on various data structures
-2. Implement common algorithms using loops (sorting, searching)
-3. Work with nested loops for 2D data processing
-4. Practice optimizing loop performance
-5. Build projects that require iteration (data processing, games, etc.)
+1. Practice with different loop patterns and counting exercises
+2. Create more complex nested loop patterns (squares, diamonds, etc.)
+3. Work with string manipulation using loops
+4. Practice number processing and mathematical calculations
+5. Build simple games that use loop logic (guessing games, etc.)
 
 ---
 
