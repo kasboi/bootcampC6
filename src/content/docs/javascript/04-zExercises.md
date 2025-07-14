@@ -29,8 +29,6 @@ if (x > 5) {
 - C) "C"
 - D) Nothing
 
-**Answer: A** - The first condition (x > 5) is true, so "A" is printed and the rest is skipped.
-
 ### Question 2
 
 Which of these values is considered "falsy" in JavaScript?
@@ -39,8 +37,6 @@ Which of these values is considered "falsy" in JavaScript?
 - B) []
 - C) 0
 - D) " "
-
-**Answer: C** - 0 is falsy. "false" is a string (truthy), [] is an empty array (truthy), and " " contains a space (truthy).
 
 ### Question 3
 
@@ -64,8 +60,6 @@ switch (day) {
 - C) "Start" then "Continue" then "Default"
 - D) Error
 
-**Answer: B** - Missing break after "Monday" case causes fall-through to "Tuesday" case.
-
 ### Question 4
 
 What does the ternary operator `condition ? value1 : value2` do?
@@ -75,8 +69,6 @@ What does the ternary operator `condition ? value1 : value2` do?
 - C) Returns value1 if condition is true, value2 if false
 - D) Always returns value1
 
-**Answer: C** - Ternary operator returns the first value if condition is true, second if false.
-
 ### Question 5
 
 Which comparison operator checks both value AND type?
@@ -85,8 +77,6 @@ Which comparison operator checks both value AND type?
 - B) ===
 - C) !=
 - D) <>
-
-**Answer: B** - === is strict equality that checks both value and type.
 
 ---
 

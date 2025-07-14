@@ -332,36 +332,6 @@ Create a program that determines shopping discounts.
 // "Final price: $102"
 ```
 
-### Application 3: Password Strength Checker
-
-Create a program that evaluates password strength.
-
-```javascript
-// TODO: Create a variable called userPassword with the value "MyPass123!"
-// TODO: Check multiple criteria and store results in variables:
-//       - At least 8 characters long (store in hasLength)
-//       - Contains uppercase letters (store in hasUppercase)
-//       - Contains lowercase letters (store in hasLowercase)
-//       - Contains numbers (store in hasNumber)
-//       - Contains special characters (store in hasSpecial)
-// TODO: Determine strength level based on how many criteria are met
-// TODO: Display each criterion result and overall strength
-
-// HINT: Use .length property for length check
-// HINT: For character checks, you can use comparison with specific characters
-// HINT: This is challenging with current knowledge - focus on length and basic checks
-// HINT: Count how many criteria are met to determine strength (3+ = strong, 2 = medium, 1 = weak)
-
-// Expected output:
-// "Password: MyPass123!"
-// "Length (8+): true"
-// "Has uppercase: true"
-// "Has lowercase: true"
-// "Has numbers: true"
-// "Has special chars: true"
-// "Password strength: Strong"
-```
-
 ## Self-Assessment Checklist
 
 - [ ] I understand the difference between `==` and `===`

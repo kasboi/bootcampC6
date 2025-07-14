@@ -7,10 +7,11 @@ title: Loops - Exercises
 ### Question 1
 
 Which loop is best for iterating over an array when you need the index?
-A) `for...in` loop
-B) `for...of` loop
-C) `for` loop
-D) `while` loop
+
+- A) `for...in` loop
+- B) `for...of` loop
+- C) `for` loop
+- D) `while` loop
 
 ### Question 2
 
@@ -22,26 +23,28 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-A) 0 1 2 3
-B) 1 2 3
-C) 0 1 2
-D) Error
+- A) 0 1 2 3
+- B) 1 2 3
+- C) 0 1 2
+- D) Error
 
 ### Question 3
 
 What happens if you forget the increment in a `for` loop?
-A) The loop runs once
-B) The loop doesn't run at all
-C) The loop runs infinitely
-D) Syntax error
+
+- A) The loop runs once
+- B) The loop doesn't run at all
+- C) The loop runs infinitely
+- D) Syntax error
 
 ### Question 4
 
 Which statement is used to skip the current iteration and continue with the next one?
-A) `break`
-B) `continue`
-C) `return`
-D) `skip`
+
+- A) `break`
+- B) `continue`
+- C) `return`
+- D) `skip`
 
 ### Question 5
 
@@ -55,10 +58,10 @@ while (i < 5) {
 }
 ```
 
-A) Prints 0 1 2 3 4
-B) Prints nothing
-C) Infinite loop
-D) Syntax error
+- A) Prints 0 1 2 3 4
+- B) Prints nothing
+- C) Infinite loop
+- D) Syntax error
 
 ### Question 6
 
@@ -72,332 +75,402 @@ for (let i = 1; i <= 2; i++) {
 }
 ```
 
-A) 1-1, 1-2, 2-1, 2-2
-B) 1-1, 2-2
-C) 1-2, 2-1
-D) Error
+- A) 1-1, 1-2, 2-1, 2-2
+- B) 1-1, 2-2
+- C) 1-2, 2-1
+- D) Error
 
 ## Practical Coding Exercises
 
 ### Exercise 1: Basic For Loop
 
-Write code that prints numbers from 1 to n:
+Write a script that asks the user for a number `n` and then prints all numbers from 1 to `n`.
+
+**Instructions:**
+
+1.  Prompt the user to enter a number.
+2.  Use a `for` loop to iterate from 1 up to the user's number.
+3.  Collect all the numbers into a single string.
+4.  Display the final string in an alert box.
+
+**Starter Code:**
 
 ```javascript
-// TODO: Create a variable for the limit (n)
-// TODO: Use a for loop to print numbers from 1 to n
-// TODO: Display each number on a new line
+function printNumbers() {
+  const n = prompt("Enter a number to count up to:");
+  const number = parseInt(n);
 
-// HINT: Use for loop with initialization, condition, and increment
-// HINT: Start from 1, continue while <= n, increment by 1
-// HINT: Use console.log() to print each number
+  if (isNaN(number) || number < 1) {
+    alert("Please enter a valid number greater than 0.");
+    return;
+  }
+
+  let output = "";
+  // TODO: Use a for loop to build a string of numbers from 1 to `number`.
+  // Example: "1 2 3 4 5"
+
+  alert(`Numbers from 1 to ${number}:\n${output}`);
+}
+
+printNumbers();
+```
+
+**Solution:**
+
+```javascript
+function printNumbers() {
+  const n = prompt("Enter a number to count up to:");
+  const number = parseInt(n);
+
+  if (isNaN(number) || number < 1) {
+    alert("Please enter a valid number greater than 0.");
+    return;
+  }
+
+  let output = "";
+  for (let i = 1; i <= number; i++) {
+    output += i + " ";
+  }
+
+  alert(`Numbers from 1 to ${number}:\n${output.trim()}`);
+}
 ```
 
 ### Exercise 2: Sum Calculator
 
-Create code that calculates the sum of numbers from 1 to n:
+Create a script that calculates the sum of all numbers from 1 up to a number provided by the user.
+
+**Instructions:**
+
+1.  Prompt the user for a number `n`.
+2.  Initialize a `sum` variable to 0.
+3.  Use a `for` loop to add each number from 1 to `n` to the `sum`.
+4.  Display the final sum in an alert.
+
+**Starter Code:**
 
 ```javascript
-// TODO: Create variables for the limit (n) and sum
-// TODO: Use a for loop to add each number to the sum
-// TODO: Display the final sum
+function sumCalculator() {
+  const n = prompt("Enter a number to calculate the sum up to:");
+  const number = parseInt(n);
 
-// HINT: Initialize sum to 0
-// HINT: Add each number in the loop to the sum
-// HINT: Print the sum after the loop completes
-```
+  if (isNaN(number) || number < 1) {
+    alert("Please enter a valid number greater than 0.");
+    return;
+  }
 
-// Return the sum of numbers from 1 to n
+  let sum = 0;
+  // TODO: Use a for loop to calculate the sum of numbers from 1 to `number`.
+
+  alert(`The sum of numbers from 1 to ${number} is: ${sum}`);
 }
 
-// Test your function
-console.log(calculateSum(5)); // Should return: 15 (1+2+3+4+5)
-console.log(calculateSum(10)); // Should return: 55
+sumCalculator();
+```
 
-````
+**Solution:**
+
+```javascript
+function sumCalculator() {
+  const n = prompt("Enter a number to calculate the sum up to:");
+  const number = parseInt(n);
+
+  if (isNaN(number) || number < 1) {
+    alert("Please enter a valid number greater than 0.");
+    return;
+  }
+
+  let sum = 0;
+  for (let i = 1; i <= number; i++) {
+    sum += i;
+  }
+
+  alert(`The sum of numbers from 1 to ${number} is: ${sum}`);
+}
+```
 
 ### Exercise 3: Number Pattern
 
-Create code that prints a pattern of numbers:
+Create a script that asks for a number of rows and prints a right-angled triangle pattern of numbers.
+
+**Instructions:**
+
+1.  Prompt the user for the number of rows.
+2.  Use nested `for` loops to build the pattern.
+3.  The outer loop will handle the rows.
+4.  The inner loop will build the string for each row.
+5.  Display the complete pattern in an alert box.
+
+**Starter Code:**
 
 ```javascript
-// TODO: Create a variable for the number of rows (e.g., 5)
-// TODO: Use nested loops to create this pattern:
-// 1
-// 1 2
-// 1 2 3
-// 1 2 3 4
-// 1 2 3 4 5
+function printPattern() {
+  const rows = prompt("Enter the number of rows for the pattern:");
+  const numRows = parseInt(rows);
 
-// HINT: Use outer loop for rows, inner loop for numbers in each row
-// HINT: Inner loop should go from 1 to current row number
-// HINT: Use process.stdout.write() to print without newlines, console.log() for new lines
-````
+  if (isNaN(numRows) || numRows < 1) {
+    alert("Please enter a valid number of rows.");
+    return;
+  }
 
-### Exercise 4: Character Frequency Counter
+  let pattern = "";
+  // TODO: Use nested loops to create the pattern.
+  // The outer loop should iterate from 1 to numRows.
+  // The inner loop should build each line of the pattern.
 
-Create code that counts how often each character appears in a string:
+  alert(`Number Pattern with ${numRows} rows:\n\n${pattern}`);
+}
 
-```javascript
-// TODO: Create a variable called inputString with the value "hello"
-// TODO: Use loops to count how many times each character appears
-// TODO: Display the count for each unique character
-
-// HINT: You can use a simple approach with nested loops
-// HINT: For each character, count how many times it appears in the string
-// HINT: Keep track of which characters you've already counted to avoid duplicates
-
-// Expected output:
-// "h: 1"
-// "e: 1"
-// "l: 2"
-// "o: 1"
+printPattern();
 ```
 
-### Exercise 5: Multiplication Table
-
-Create code that displays a multiplication table:
+**Solution:**
 
 ```javascript
-// TODO: Create a variable called number with the value 5
-// TODO: Use a for loop to create a multiplication table
-// TODO: Display the table from 1 x 5 through 10 x 5
+function printPattern() {
+  const rows = prompt("Enter the number of rows for the pattern:");
+  const numRows = parseInt(rows);
 
-// HINT: Loop from 1 to 10
-// HINT: Calculate the product for each iteration
-// HINT: Format the output nicely (e.g., "5 x 1 = 5")
+  if (isNaN(numRows) || numRows < 1) {
+    alert("Please enter a valid number of rows.");
+    return;
+  }
 
-// Expected output:
-// "5 x 1 = 5"
-// "5 x 2 = 10"
-// ...
-// "5 x 10 = 50"
+  let pattern = "";
+  for (let i = 1; i <= numRows; i++) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+      line += j + " ";
+    }
+    pattern += line.trim() + "\n";
+  }
+
+  alert(`Number Pattern with ${numRows} rows:\n\n${pattern}`);
+}
 ```
 
-### Exercise 6: While Loop Practice
+### Exercise 4: Multiplication Table
 
-Create code that finds the first number whose square is greater than a given value:
+Create a script that generates a multiplication table for a number provided by the user.
+
+**Instructions:**
+
+1.  Prompt the user to enter a number.
+2.  Use a `for` loop to iterate from 1 to 10.
+3.  In each iteration, calculate the product of the user's number and the loop counter.
+4.  Format the output into a readable table.
+5.  Display the table in an alert box.
+
+**Starter Code:**
 
 ```javascript
-// TODO: Create a variable called target with the value 20
-// TODO: Create a variable called number starting at 1
-// TODO: Use a while loop to find the first number whose square > target
-// TODO: Display the result
+function multiplicationTable() {
+  const input = prompt("Enter a number for its multiplication table:");
+  const number = parseInt(input);
 
-// HINT: Use while loop with condition (number * number <= target)
-// HINT: Increment number in each iteration
-// HINT: When loop ends, number will be the answer
+  if (isNaN(number)) {
+    alert("Invalid input. Please enter a number.");
+    return;
+  }
 
-// Expected output for target = 20:
-// "The first number whose square is greater than 20 is: 5"
-// "Because 5 * 5 = 25, which is greater than 20"
+  let table = "";
+  // TODO: Use a for loop (1 to 10) to build the multiplication table string.
+  // Each line should look like: "5 x 1 = 5"
+
+  alert(`Multiplication Table for ${number}:\n\n${table}`);
+}
+
+multiplicationTable();
+```
+
+**Solution:**
+
+```javascript
+function multiplicationTable() {
+  const input = prompt("Enter a number for its multiplication table:");
+  const number = parseInt(input);
+
+  if (isNaN(number)) {
+    alert("Invalid input. Please enter a number.");
+    return;
+  }
+
+  let table = "";
+  for (let i = 1; i <= 10; i++) {
+    const result = number * i;
+    table += `${number} x ${i} = ${result}\n`;
+  }
+
+  alert(`Multiplication Table for ${number}:\n\n${table}`);
+}
+```
+
+### Exercise 5: While Loop Practice
+
+Create a script that finds the first integer whose square is greater than a number provided by the user.
+
+**Instructions:**
+
+1.  Prompt the user for a `target` number.
+2.  Use a `while` loop to find the first integer `n` where `n*n > target`.
+3.  Start with a counter at 1 and increment it inside the loop.
+4.  The loop should continue as long as the square of the counter is less than or equal to the target.
+5.  Display the result in an alert.
+
+**Starter Code:**
+
+```javascript
+function findFirstSquare() {
+  const target = parseInt(prompt("Enter a target number (e.g., 100):"));
+
+  if (isNaN(target)) {
+    alert("Invalid input. Please enter a number.");
+    return;
+  }
+
+  let number = 1;
+  // TODO: Use a while loop to find the first number whose square is > target.
+  // The condition should check `number * number <= target`.
+
+  alert(
+    `The first number whose square is greater than ${target} is ${number}.`,
+  );
+}
+
+findFirstSquare();
+```
+
+**Solution:**
+
+```javascript
+function findFirstSquare() {
+  const target = parseInt(prompt("Enter a target number (e.g., 100):"));
+
+  if (isNaN(target)) {
+    alert("Invalid input. Please enter a number.");
+    return;
+  }
+
+  let number = 1;
+  while (number * number <= target) {
+    number++;
+  }
+
+  alert(
+    `The first number whose square is greater than ${target} is ${number}.`,
+  );
+}
 ```
 
 ## Challenge Problems
 
-## Challenge Problems
+### Challenge 1: Prime Number Checker
 
-### Challenge 1: Number Pattern Generator
+Create a script that checks if a user-provided number is a prime number.
 
-Create code that generates various patterns using loops:
+**Instructions:**
 
-```javascript
-// TODO: Create a variable called size with the value 4
-// TODO: Generate a triangle pattern using nested loops
-// TODO: Display the pattern using asterisks (*)
+1.  Prompt the user to enter a number.
+2.  Handle edge cases: numbers less than 2 are not prime.
+3.  Use a `for` loop to check for divisibility from 2 up to the square root of the number.
+4.  If the number is divisible by any integer in that range, it's not prime.
+5.  Display whether the number is prime or not in an alert.
 
-// HINT: Use outer loop for rows, inner loop for asterisks in each row
-// HINT: Row 1 has 1 asterisk, row 2 has 2 asterisks, etc.
-
-// Expected output:
-// *
-// **
-// ***
-// ****
-```
-
-### Challenge 2: Prime Number Checker
-
-Create code that checks if numbers are prime:
+**Starter Code:**
 
 ```javascript
-// TODO: Create a variable called testNumber with the value 17
-// TODO: Use loops to check if the number is prime
-// TODO: A prime number is only divisible by 1 and itself
+function checkPrime() {
+  const num = parseInt(prompt("Enter a number to check if it's prime:"));
 
-// HINT: Use a for loop to check divisors from 2 to testNumber-1
-// HINT: If any number divides evenly (remainder is 0), it's not prime
-// HINT: Use the modulus operator (%) to check for remainders
+  if (isNaN(num) || num < 0) {
+    alert("Please enter a valid positive number.");
+    return;
+  }
 
-// Expected output:
-// "17 is a prime number"
+  let isPrime = true;
+  // TODO: Write the logic to check if `num` is a prime number.
+  // 1. Handle cases for numbers less than 2.
+  // 2. Use a for loop to check for divisors.
+  // 3. If a divisor is found, set isPrime to false and break the loop.
+
+  if (isPrime) {
+    alert(`${num} is a prime number.`);
+  } else {
+    alert(`${num} is not a prime number.`);
+  }
+}
+
+checkPrime();
 ```
 
-### Challenge 3: Counting Challenge
-
-Create code that counts specific patterns in numbers:
+**Solution:**
 
 ```javascript
-// TODO: Create a variable called limit with the value 100
-// TODO: Count how many numbers from 1 to limit contain the digit 5
-// TODO: Use loops and string methods to check each number
+function checkPrime() {
+  const num = parseInt(prompt("Enter a number to check if it's prime:"));
 
-// HINT: Convert numbers to strings to check individual digits
-// HINT: Use a loop to go through each number from 1 to limit
-// HINT: For each number, check if it contains the digit "5"
+  if (isNaN(num) || num < 0) {
+    alert("Please enter a valid positive number.");
+    return;
+  }
 
-// Expected output:
-// "Numbers containing digit 5: 19"
-// "Examples: 5, 15, 25, 35, 45, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 65, 75, 85, 95"
+  let isPrime = true;
+
+  if (num < 2) {
+    isPrime = false;
+  } else {
+    // Check for divisors from 2 up to the square root of the number
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        isPrime = false;
+        break; // Exit the loop early if a divisor is found
+      }
+    }
+  }
+
+  if (isPrime) {
+    alert(`${num} is a prime number.`);
+  } else {
+    alert(`${num} is not a prime number.`);
+  }
+}
 ```
-
-## Debugging Exercises
 
 ## Debugging Exercises
 
 ### Debug Exercise 1: Fix the Infinite Loop
 
-Find and fix the infinite loop:
+This code has a bug that causes an infinite loop. Find and fix it.
+
+**Code with Bug:**
 
 ```javascript
-// TODO: This code has a bug - it will run forever!
-let countdown = 5;
-while (countdown > 0) {
-  console.log(countdown);
-  // BUG: Missing countdown decrement
-}
-console.log("Done!");
-
-// HINT: What's missing to make the countdown variable change?
-// HINT: Add countdown-- or countdown = countdown - 1
-// Expected after fix: 5, 4, 3, 2, 1, Done!
-```
-
-### Debug Exercise 2: Fix the Off-by-One Error
-
-Find and fix the off-by-one error:
-
-```javascript
-// TODO: This loop should print numbers 1 through 10, but it has a bug
-for (let i = 1; i <= 10; i++) {
-  if (i === 10) {
-    break; // BUG: This exits before printing 10
+function infiniteLoop() {
+  let countdown = 5;
+  let message = "";
+  while (countdown > 0) {
+    message += countdown + "\n";
+    // BUG: The countdown variable is never changed.
   }
-  console.log(i);
+  message += "Done!";
+  alert(message);
 }
-
-// HINT: What happens when i equals 10?
-// HINT: Remove the break statement or change the condition
-// Expected after fix: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 ```
 
-### Debug Exercise 3: Fix the Logic Error
-
-Find and fix the logic error:
+**Solution:**
 
 ```javascript
-// TODO: This should count even numbers from 1 to 10, but it has a bug
-let evenCount = 0;
-for (let i = 1; i <= 10; i++) {
-  if (i % 2 === 1) {
-    // BUG: This checks for odd numbers, not even
-    evenCount++;
+function fixedLoop() {
+  let countdown = 5;
+  let message = "";
+  while (countdown > 0) {
+    message += countdown + "\n";
+    countdown--; // FIX: Decrement the counter
   }
+  message += "Done!";
+  alert(message);
 }
-console.log("Even numbers count:", evenCount);
-
-// HINT: What does i % 2 === 1 actually check for?
-// HINT: Change the condition to check for even numbers (i % 2 === 0)
-// Expected after fix: "Even numbers count: 5"
 ```
-
-## Real-World Applications
-
-### Application 1: Receipt Calculator
-
-Create code that calculates the total for multiple items:
-
-```javascript
-// TODO: You have item prices: 12.99, 8.50, 25.00, 4.75, 15.25
-// TODO: Use loops to calculate the total cost
-// TODO: Apply 8.5% sales tax to the subtotal
-// TODO: Display itemized breakdown and final total
-
-// HINT: You can use a loop with individual price variables
-// HINT: Calculate tax as subtotal * 0.085
-// HINT: Format prices to 2 decimal places using .toFixed(2)
-
-// Expected output:
-// "Item 1: $12.99"
-// "Item 2: $8.50"
-// ...
-// "Subtotal: $66.49"
-// "Tax (8.5%): $5.65"
-// "Total: $72.14"
-```
-
-### Application 2: Grade Point Average Calculator
-
-Create code that calculates GPA from multiple course grades:
-
-```javascript
-// TODO: You have grades: 85, 92, 78, 88, 95, 82
-// TODO: Use loops to calculate the average grade
-// TODO: Convert the average to a GPA scale (A=4.0, B=3.0, C=2.0, D=1.0, F=0.0)
-// TODO: Display all grades and final GPA
-
-// HINT: A: 90-100, B: 80-89, C: 70-79, D: 60-69, F: below 60
-// HINT: Sum all grades, then divide by count
-// HINT: Use conditional logic to convert average to letter grade
-
-// Expected output:
-// "Grade 1: 85 (B)"
-// "Grade 2: 92 (A)"
-// ...
-// "Average: 86.67"
-// "Letter Grade: B"
-// "GPA: 3.0"
-```
-
-### Application 3: Simple Interest Calculator
-
-Create code that calculates compound interest over multiple years:
-
-```javascript
-// TODO: Create variables for principal ($1000), rate (5%), and years (10)
-// TODO: Use a loop to calculate compound interest year by year
-// TODO: Display the balance for each year
-
-// HINT: Each year: newBalance = oldBalance * (1 + rate/100)
-// HINT: Use a for loop from year 1 to final year
-// HINT: Track and display the balance for each year
-
-// Expected output:
-// "Year 1: $1,050.00"
-// "Year 2: $1,102.50"
-// ...
-// "Year 10: $1,628.89"
-// "Total interest earned: $628.89"
-```
-
-## Self-Assessment Checklist
-
-- [ ] I can write and understand `for` loops with proper syntax
-- [ ] I know when to use `while` vs `for` loops
-- [ ] I can use `break` and `continue` statements appropriately
-- [ ] I can avoid infinite loops by ensuring proper loop conditions
-- [ ] I can write nested loops for pattern generation
-- [ ] I can debug common loop-related errors
-- [ ] I can apply loops to solve real-world programming problems
-- [ ] I understand loop control flow and iteration concepts
-
-## Additional Practice Resources
-
-1. Practice with different loop patterns and counting exercises
-2. Create more complex nested loop patterns (squares, diamonds, etc.)
-3. Work with string manipulation using loops
-4. Practice number processing and mathematical calculations
-5. Build simple games that use loop logic (guessing games, etc.)
 
 ---
 
