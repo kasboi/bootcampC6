@@ -195,6 +195,25 @@ link.href = "https://google.com";
 
 ### Creating New Elements
 
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    ```html
+    <h1>Welcome</h1>
+<p>Hello World</p>
+```
+</TabItem>
+<TabItem label="CSS" icon="seti:css">
+```css
+p {
+  background-color: #f8f0fc;  
+  border: 4px solid #862e9c;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+```
+</TabItem>
+<TabItem label="JavaScript" icon="seti:javascript">
+
 ```javascript
 // Create new element
 const newParagraph = document.createElement("p");
@@ -205,9 +224,9 @@ newParagraph.classList.add("dynamic-content");
 const newDiv = document.createElement("div");
 newDiv.innerHTML = "<h3>Dynamic Title</h3><p>Dynamic content</p>";
 
-// Create text node
-const textNode = document.createTextNode("Just some text");
 ```
+</TabItem>
+</Tabs>
 
 ### Adding Elements to the DOM
 
