@@ -12,9 +12,13 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Bootcamp C6",
-      social: {
-        github: "https://github.com/withastro/starlight",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "Github",
+          href: "https://github.com/withastro/starlight",
+        },
+      ],
       sidebar: [
         {
           label: "Introduction",
